@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Navigation } from "./components/navigation";
 import { Hero } from "./components/hero";
-import { Methodology } from "./components/methodology";
+import { Services } from "./components/services"; // Nova importação
 import { Footer } from "./components/footer";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
 
       {/* Conteúdo Principal Dividido em Blocos */}
       <Hero />
-      <Methodology />
+      <Services />
 
       {/* Footer (Server Side - Estático e Rápido) */}
       <Footer />
