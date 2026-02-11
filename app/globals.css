@@ -63,3 +63,22 @@ html.lenis, html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+/* --- COMPORTAMENTO DO CURSOR EM ÁREAS DE ARRASTAR --- */
+
+/* Quando a classe 'grabbing-mode' estiver no body (ativada pelo JS nos Serviços),
+  escondemos o cursor personalizado (a bolinha fixa).
+*/
+body.grabbing-mode .fixed.top-0.left-0.w-8.h-8 {
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Garante que o cursor do sistema seja a mãozinha */
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
