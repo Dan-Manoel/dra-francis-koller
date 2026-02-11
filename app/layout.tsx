@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
-import { SmoothScroll } from "./components/smooth-scroll"; // Mantendo sua importação correta
+import { SmoothScroll } from "./components/smooth-scroll";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,11 +19,10 @@ const playfair = Playfair_Display({
   weight: ["400", "600", "700"],
 });
 
-// --- CONFIGURAÇÃO DE METADADOS E OG ---
+// --- CONFIGURAÇÃO DE SEO E OPEN GRAPH ---
 export const metadata: Metadata = {
-  // 1. URL Base (IMPORTANTE: Substitua pela URL final do seu site na Vercel)
-  // Sem isso, a imagem do WhatsApp/LinkedIn pode não aparecer.
-  metadataBase: new URL("https://drafranciskoller.com.br"), 
+  // IMPORTANTE: Troque pela URL final quando publicar na Vercel
+  metadataBase: new URL("https://dra-francis-koller.vercel.app"), 
 
   title: {
     default: "Dra. Francis Koller | Terapia Integrativa",
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
   
   authors: [{ name: "Dra. Francis Koller" }, { name: "AboveDigital", url: "https://abovedigital.com.br" }],
   
-  // 2. Open Graph (Facebook, WhatsApp, LinkedIn)
+  // Facebook / WhatsApp / LinkedIn
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Dra. Francis Koller",
     images: [
       {
-        url: "/og.jpg", // O arquivo deve estar na pasta public
+        url: "/og.jpg", // Certifique-se de que og.jpg está na pasta public
         width: 1200,
         height: 630,
         alt: "Dra. Francis Koller - Terapia Integrativa",
@@ -53,7 +52,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  // 3. Twitter Card
+  // Twitter
   twitter: {
     card: "summary_large_image",
     title: "Dra. Francis Koller | Terapia Integrativa",
