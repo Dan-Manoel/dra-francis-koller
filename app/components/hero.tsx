@@ -84,7 +84,7 @@ export function Hero() {
           className="mt-12 flex flex-col md:flex-row justify-between items-end max-w-4xl"
         >
           <p className="font-sans text-lg md:text-xl text-[#1a2e22]/80 max-w-sm leading-relaxed backdrop-blur-sm">
-            Restaurando a harmonia natural do corpo através de uma abordagem que une ortopedia avançada e terapias holísticas.
+            Restaurando a harmonia natural do corpo através de uma abordagem que une fisioterapia avançada e terapias integrativas.
           </p>
 
           <a

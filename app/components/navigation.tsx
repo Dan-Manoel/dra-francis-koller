@@ -48,6 +48,9 @@ export function Navigation() {
     };
   }, []);
 
+  // Cor Dinâmica: Verde quando fechado (fundo claro), Claro quando aberto (fundo verde)
+  const textColorClass = isMenuOpen ? "text-[#f4f4f0]" : "text-[#1a2e22]";
+
   return (
     <>
       {/* Custom Cursor */}
@@ -68,16 +71,14 @@ export function Navigation() {
       />
 
       {/* Header Fixo */}
-      <header className="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-exclusion text-[#f4f4f0]">
+      <header className="fixed top-0 w-full p-8 flex justify-between items-center z-50">
         
         {/* Logo + Nome (Link para Home) */}
         <Link 
           href="/" 
-          // CORREÇÃO: Reduzi o gap para 1.5 para ficar bem juntinho
           className="flex items-center gap-1.5 group cursor-pointer"
         >
-          {/* Container do Logo */}
-          {/* CORREÇÃO: Removi 'mix-blend-difference' para não inverter a cor do logo (Dourado) */}
+          {/* Container do Logo (Sempre Original) */}
           <div className="relative w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform duration-300">
              <Image 
                src="/logo.png" 
@@ -88,18 +89,18 @@ export function Navigation() {
              />
           </div>
 
-          {/* Nome da Dra */}
-          <span className="text-xl md:text-2xl font-serif font-bold tracking-tighter mix-blend-difference">
+          {/* Nome da Dra (Muda de cor conforme o menu) */}
+          <span className={`text-xl md:text-2xl font-serif font-bold tracking-tighter transition-colors duration-300 ${textColorClass}`}>
             Dra. Francis Koller
           </span>
         </Link>
         
-        {/* Botão Menu Hambúrguer */}
+        {/* Botão Menu Hambúrguer (Muda de cor conforme o menu) */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center gap-2 group cursor-pointer mix-blend-difference"
+          className={`flex items-center gap-2 group cursor-pointer transition-colors duration-300 ${textColorClass}`}
         >
-          <div className="relative w-10 h-10 flex items-center justify-center rounded-full border border-current group-hover:bg-[#f4f4f0] group-hover:text-[#1a2e22] transition-colors">
+          <div className="relative w-10 h-10 flex items-center justify-center rounded-full border border-current group-hover:bg-[#d4a373] group-hover:text-white transition-colors">
             {isMenuOpen ? <X size={16} /> : <Menu size={16} />}
           </div>
         </button>

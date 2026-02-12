@@ -22,15 +22,15 @@ const playfair = Playfair_Display({
 // --- CONFIGURAÇÃO DE SEO E OPEN GRAPH ---
 export const metadata: Metadata = {
   // IMPORTANTE: Troque pela URL final quando publicar na Vercel
-  metadataBase: new URL("https://dra-francis-koller.vercel.app"), 
+  metadataBase: new URL("https://drafranciskooler.com.br"), 
 
   title: {
     default: "Dra. Francis Koller | Terapia Integrativa",
     template: "%s | Dra. Francis Koller",
   },
-  description: "Ortopedia e Terapia Integrativa com abordagem holística. Restaurando a harmonia natural do corpo através de tratamentos personalizados.",
+  description: "Fisioterapia e Terapia Integrativa com abordagem holística. Restaurando a harmonia natural do corpo através de tratamentos personalizados.",
   
-  keywords: ["Ortopedia", "Terapia Integrativa", "Dra Francis Koller", "Saúde Holística", "Dor Crônica", "Tratamento Natural"],
+  keywords: ["Fisioterapia", "Terapia Integrativa", "Dra Francis Koller", "Saúde Holística", "Dor Crônica", "Tratamento Natural"],
   
   authors: [{ name: "Dra. Francis Koller" }, { name: "AboveDigital", url: "https://abovedigital.com.br" }],
   
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     title: "Dra. Francis Koller | Terapia Integrativa",
-    description: "Ortopedia e Terapia Integrativa com abordagem holística.",
+    description: "Fisioterapia e Terapia Integrativa com abordagem holística.",
     siteName: "Dra. Francis Koller",
     images: [
       {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Dra. Francis Koller | Terapia Integrativa",
-    description: "Ortopedia e Terapia Integrativa com abordagem holística.",
+    description: "Fisioterapia e Terapia Integrativa com abordagem holística.",
     images: ["/og.jpg"],
   },
 
