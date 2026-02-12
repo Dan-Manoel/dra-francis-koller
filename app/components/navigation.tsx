@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Instagram, Facebook, Mail } from "lucide-react";
-import { WhatsAppIcon } from "./icons";
+import { WhatsAppIcon, TikTokIcon } from "./icons";
 import { CONTACT_INFO } from "../constants";
 
 export function Navigation() {
@@ -11,22 +13,28 @@ export function Navigation() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHoveringLink, setIsHoveringLink] = useState(false);
 
+  // Lista de Links do Menu
+  const menuItems = [
+    { label: "Home", href: "/" },
+    { label: "Terapias", href: "/terapias" },
+    { label: "Sobre", href: "/sobre" },
+    { label: "Contato", href: "/contato" },
+  ];
+
   // Lógica do Cursor
   useEffect(() => {
     const updateMouse = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    // CORREÇÃO AQUI: Adicionamos .cursor-grab e .cursor-grabbing na detecção
-    // para a bolinha sumir na barra de rolagem dos serviços
     const checkHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const isInteractive = 
         target.closest("a") || 
         target.closest("button") || 
         target.closest(".cursor-pointer") ||
-        target.closest(".cursor-grab") ||     // Detecta área de arrastar
-        target.closest(".cursor-grabbing");   // Detecta quando está arrastando
+        target.closest(".cursor-grab") ||
+        target.closest(".cursor-grabbing");
       
       setIsHoveringLink(!!isInteractive);
     };
@@ -59,25 +67,45 @@ export function Navigation() {
         }}
       />
 
-      {/* Header Button */}
+      {/* Header Fixo */}
       <header className="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-exclusion text-[#f4f4f0]">
-        <div className="text-2xl font-serif font-bold tracking-tighter mix-blend-difference">
-          Dra. Francis Koller
-        </div>
+        
+        {/* Logo + Nome (Link para Home) */}
+        <Link 
+          href="/" 
+          // CORREÇÃO: Reduzi o gap para 1.5 para ficar bem juntinho
+          className="flex items-center gap-1.5 group cursor-pointer"
+        >
+          {/* Container do Logo */}
+          {/* CORREÇÃO: Removi 'mix-blend-difference' para não inverter a cor do logo (Dourado) */}
+          <div className="relative w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform duration-300">
+             <Image 
+               src="/logo.png" 
+               alt="Logo Dra. Francis Koller" 
+               fill 
+               className="object-contain"
+               sizes="(max-width: 768px) 40px, 48px"
+             />
+          </div>
+
+          {/* Nome da Dra */}
+          <span className="text-xl md:text-2xl font-serif font-bold tracking-tighter mix-blend-difference">
+            Dra. Francis Koller
+          </span>
+        </Link>
+        
+        {/* Botão Menu Hambúrguer */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          // CORREÇÃO: Removi 'cursor-none' e coloquei 'cursor-pointer'
           className="flex items-center gap-2 group cursor-pointer mix-blend-difference"
         >
-          <span className="uppercase text-xs tracking-[0.2em] font-medium group-hover:mr-2 transition-all">
-          </span>
           <div className="relative w-10 h-10 flex items-center justify-center rounded-full border border-current group-hover:bg-[#f4f4f0] group-hover:text-[#1a2e22] transition-colors">
             {isMenuOpen ? <X size={16} /> : <Menu size={16} />}
           </div>
         </button>
       </header>
 
-      {/* Fullscreen Menu */}
+      {/* Menu Fullscreen (Overlay) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -88,11 +116,9 @@ export function Navigation() {
             className="fixed inset-0 z-40 bg-[#1a2e22] flex flex-col items-center justify-center overflow-hidden"
           >
             <nav className="relative z-50 flex flex-col items-center gap-6 md:gap-8 text-[#f4f4f0]">
-              {["A Clínica", "Terapias", "Sobre a Dra.", "Contato"].map((item, i) => (
-                <motion.a
-                  href={item === "Contato" ? "#contato" : "#"}
-                  onClick={() => setIsMenuOpen(false)}
-                  key={item}
+              {menuItems.map((item, i) => (
+                <motion.div
+                  key={item.label}
                   initial={{ y: 40, opacity: 0, filter: "blur(10px)" }}
                   animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                   exit={{ y: 0, opacity: 0, filter: "blur(10px)" }}
@@ -101,11 +127,15 @@ export function Navigation() {
                     duration: 0.8,
                     ease: [0.22, 1, 0.36, 1]
                   }}
-                  // CORREÇÃO: Removi 'cursor-none' e coloquei 'cursor-pointer'
-                  className="text-5xl md:text-8xl font-serif hover:italic hover:text-[#d4a373] transition-all cursor-pointer"
                 >
-                  {item}
-                </motion.a>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-5xl md:text-8xl font-serif hover:italic hover:text-[#d4a373] transition-all cursor-pointer block"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
 
@@ -116,6 +146,8 @@ export function Navigation() {
               className="absolute bottom-12 flex gap-6 text-[#f4f4f0]/60"
             >
               <a href={CONTACT_INFO.instagram} target="_blank" className="hover:text-[#d4a373] transition-colors cursor-pointer"><Instagram /></a>
+              <a href={CONTACT_INFO.facebook} target="_blank" className="hover:text-[#d4a373] transition-colors cursor-pointer"><Facebook /></a>
+              <a href={CONTACT_INFO.tiktok} target="_blank" className="hover:text-[#d4a373] transition-colors cursor-pointer"><TikTokIcon /></a>
               <a href={CONTACT_INFO.whatsappLink} target="_blank" className="hover:text-[#d4a373] transition-colors cursor-pointer"><WhatsAppIcon /></a>
               <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-[#d4a373] transition-colors cursor-pointer"><Mail /></a>
             </motion.div>

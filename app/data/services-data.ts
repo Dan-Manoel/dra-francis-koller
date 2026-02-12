@@ -3,58 +3,70 @@
 export const SERVICES_DATA = [
   {
     id: 1,
-    title: "Ortopedia Integrativa",
-    description: "Tratamento da causa raiz conectando corpo e metabolismo.",
-    details: "Uma abordagem completa que investiga não apenas a lesão, mas o contexto metabólico e inflamatório do paciente.",
-    image: "/services/servico-1.jpg",
+    title: "Acupuntura Estética Corporal",
+    description: "Acupuntura Estética Corporal: equilíbrio, beleza e bem-estar",
+    details: "A acupuntura estética corporal é uma técnica terapêutica que une os princípios milenares da Medicina Tradicional Chinesa ao cuidado com a beleza e a autoestima. Por meio da aplicação de agulhas finas em pontos específicos do corpo, essa abordagem estimula o fluxo de energia vital (Qi), promovendo harmonia interna e resultados visíveis no contorno e na vitalidade da pele.",
+    image: "/services/acupuntura.jpg",
   },
   {
     id: 2,
-    title: "Terapia da Dor",
+    title: "Cone Chines ou Hindu",
     description: "Tecnologia avançada para alívio de dores crônicas.",
     details: "Utilização de ondas de choque, laser de alta intensidade e termografia para mapear e tratar a dor sem cirurgia.",
-    image: "/services/servico-2.jpg",
+    image: "/services/cone.jpg",
   },
   {
     id: 3,
-    title: "Infiltração Guiada",
+    title: "Cromopuntura",
     description: "Precisão máxima no tratamento articular.",
     details: "Procedimentos minimamente invasivos guiados por ultrassom para garantir que o medicamento atue exatamente no local da lesão.",
-    image: "/services/servico-3.jpg",
+    image: "/services/cromopuntura.jpg",
   },
   {
     id: 4,
-    title: "Protocolos de Coluna",
+    title: "Terapia de Florais de Bach",
     description: "Recuperação de mobilidade sem cirurgia agressiva.",
     details: "Métodos conservadores para hérnias de disco e dores lombares, focando em descompressão e fortalecimento.",
-    image: "/services/servico-4.jpg",
+    image: "/services/florais.jpg",
   },
   {
     id: 5,
-    title: "Saúde Óssea",
+    title: "Ozonioterapia Estética Facial",
     description: "Prevenção e tratamento avançado de osteoporose.",
     details: "Protocolos para ganho de massa óssea e prevenção de fraturas na terceira idade.",
-    image: "/services/servico-1.jpg",
+    image: "/services/ozonio-facial.jpg",
   },
   {
     id: 6,
-    title: "Medicina Regenerativa",
+    title: "Ventosaterapia com Ozônio",
     description: "Estimulo à cura natural dos tecidos biológicos.",
     details: "Uso de terapias biológicas para acelerar a cicatrização de tendões e cartilagens.",
-    image: "/services/servico-2.jpg",
+    image: "/services/ventosa.jpg",
   },
   {
     id: 7,
-    title: "Performance Longevidade",
+    title: "Reiki",
     description: "Otimização da saúde para viver mais e melhor.",
     details: "Gestão da saúde para quem busca alta performance física e envelhecimento saudável.",
-    image: "/services/servico-3.jpg",
+    image: "/services/reiki.jpg",
   },
-  {
+{
     id: 8,
-    title: "Saúde Metabólica",
-    description: "Equilíbrio químico para fortalecer a estrutura física.",
-    details: "Ajustes nutricionais e hormonais para dar suporte ao sistema musculoesquelético.",
-    image: "/services/servico-4.jpg",
+    title: "Massagem com Pedras Quentes",
+    description: "Relaxe profundamente com a Massagem com Pedras Quentes",
+    // Use crases (`) no início e no fim para permitir quebras de linha
+    details: `Imagine o calor suave das pedras aquecidas deslizando sobre sua pele, dissolvendo tensões, equilibrando emoções e despertando o seu bem-estar interior.
+
+A massagem com pedras quentes é uma terapia milenar que combina calor, toque terapêutico e conexão energética para:
+
+🌋 Aliviar tensões musculares profundas
+🌋 Aumentar a circulação e oxigenação dos tecidos
+🌋 Promover relaxamento físico e emocional
+🌋 Restaurar o equilíbrio entre corpo e mente
+
+Cada pedra aquece não apenas o corpo — mas também o coração.
+
+Reserve um tempo só seu. Seu corpo merece essa pausa sagrada.`,
+    image: "/services/massagem-pedras.jpg",
   },
 ];

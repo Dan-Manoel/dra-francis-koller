@@ -2,10 +2,14 @@
 
 :root {
   /* Paleta Dra. Francis - Organic Luxury */
-  --background: #f4f4f0; /* Stone White - Suave, não branco clínico */
-  --foreground: #1a2e22; /* Deep Jungle Green - Substituto do preto */
-  --accent: #d4a373; /* Muted Gold */
-  --leaf-green: #4a6741; /* Verde Folha Seca */
+  --background: #f4f4f0;
+  --foreground: #1a2e22;
+  --accent: #d4a373;
+  --leaf-green: #4a6741;
+  
+  /* Fontes */
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-geist-sans);
 }
 
 @theme inline {
@@ -22,15 +26,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
-  cursor: none; /* Escondemos o cursor padrão para usar o customizado */
+  cursor: none;
 }
 
-/* Utilitários de Texto de Luxo */
+/* Utilitários de Texto */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
 }
 
-/* Efeito de Grão (Noise) para textura de cinema */
+/* Noise Texture */
 .bg-noise {
   position: fixed;
   top: 0;
@@ -43,59 +47,50 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Smooth Scroll adjustments */
-html.lenis, html.lenis body {
-  height: auto;
-}
+/* Scroll Smoothing */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-/* --- COMPORTAMENTO DO CURSOR EM ÁREAS DE ARRASTAR --- */
-
-/* Quando a classe 'grabbing-mode' estiver no body (ativada pelo JS nos Serviços),
-  escondemos o cursor personalizado (a bolinha fixa).
-*/
+/* Cursor Logic */
 body.grabbing-mode .fixed.top-0.left-0.w-8.h-8 {
   opacity: 0 !important;
   transform: scale(0) !important;
   transition: opacity 0.2s, transform 0.2s;
 }
 
-/* Garante que o cursor do sistema seja a mãozinha */
-.cursor-grab {
-  cursor: grab;
-}
+.cursor-grab { cursor: grab; }
+.cursor-grabbing { cursor: grabbing; }
 
-.cursor-grabbing {
-  cursor: grabbing;
-}
-/* ... (seu código anterior) ... */
-
-/* FORÇAR MÃOZINHA EM LINKS E BOTÕES */
-a, 
-button, 
-[type="button"], 
-[type="submit"], 
-.cursor-pointer {
+/* Forçar Cursor Nativo em Interativos */
+a, button, [type="button"], [type="submit"], .cursor-pointer {
   cursor: pointer !important;
 }
-/* --- FORÇAR CURSOR NATIVO EM TODOS OS LINKS --- */
-/* O !important garante que ganhe de qualquer classe do Tailwind */
-html body a,
-html body button,
-html body .cursor-pointer {
+
+html body a, html body button, html body .cursor-pointer {
   cursor: pointer !important;
+}
+
+/* --- ESTADOS DO MODAL (FOCUS MODE) --- */
+
+/* Quando o modal abre, escondemos o Header e qualquer elemento fixo no topo */
+body.has-modal-open header,
+body.has-modal-open .fixed.top-0 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important; /* Garante que suma da árvore de acessibilidade visual */
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+/* Rebaixa o footer */
+body.has-modal-open footer {
+  z-index: 0 !important;
+  position: relative; /* Garante que respeite o z-index */
+}
+
+/* Eleva o Modal acima de tudo */
+body.has-modal-open .modal-overlay {
+  z-index: 2147483647 !important; /* Valor máximo permitido pelo CSS (Safe Integer) */
 }
