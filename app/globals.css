@@ -75,22 +75,62 @@ html body a, html body button, html body .cursor-pointer {
 
 /* --- ESTADOS DO MODAL (FOCUS MODE) --- */
 
-/* Quando o modal abre, escondemos o Header e qualquer elemento fixo no topo */
+/* 1. TRAVA DE SCROLL DEFINITIVA */
+body.has-modal-open {
+  overflow: hidden !important;    /* Impede rolagem */
+  height: 100vh !important;       /* Trava altura da tela */
+  touch-action: none;             /* Impede arrastar o fundo no mobile */
+  position: relative;             /* Estabilidade */
+}
+
+/* 2. ESCONDER MENU E CABEÇALHO */
 body.has-modal-open header,
 body.has-modal-open .fixed.top-0 {
   opacity: 0 !important;
   pointer-events: none !important;
-  visibility: hidden !important; /* Garante que suma da árvore de acessibilidade visual */
+  visibility: hidden !important; 
   transition: opacity 0.3s ease, visibility 0.3s;
 }
 
-/* Rebaixa o footer */
+/* 3. REBAIXAR FOOTER */
 body.has-modal-open footer {
   z-index: 0 !important;
-  position: relative; /* Garante que respeite o z-index */
+  position: relative;
 }
 
-/* Eleva o Modal acima de tudo */
+/* 4. ELEVAR MODAL ACIMA DE TUDO */
 body.has-modal-open .modal-overlay {
-  z-index: 2147483647 !important; /* Valor máximo permitido pelo CSS (Safe Integer) */
+  z-index: 2147483647 !important;
+}
+/* --- ESTADOS DO MODAL (FOCUS MODE & TRAVA TOTAL) --- */
+
+/* Aplicamos no HTML e BODY para garantir que o Lenis e o Mobile respeitem */
+html.has-modal-open,
+body.has-modal-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none; /* Bloqueia gestos de toque no fundo */
+}
+
+/* Permitir rolagem APENAS dentro do modal (onde tivermos scroll) */
+.has-modal-open .modal-scroll-content {
+  touch-action: pan-y; /* Permite rolagem vertical no conteúdo */
+}
+
+/* Esconder elementos de fundo */
+body.has-modal-open header,
+body.has-modal-open .fixed.top-0 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+body.has-modal-open footer {
+  z-index: 0 !important;
+  position: relative;
+}
+
+body.has-modal-open .modal-overlay {
+  z-index: 2147483647 !important;
 }

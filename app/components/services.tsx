@@ -23,18 +23,17 @@ export function Services() {
     setMounted(true);
   }, []);
 
-  // --- LÓGICA DE TRAVAMENTO E OCULTAÇÃO DO MENU ---
+  // --- LÓGICA DE TRAVAMENTO (LENIS COMPATIBLE) ---
   useEffect(() => {
     if (selectedService) {
-      document.body.style.overflow = "hidden";      
+      document.documentElement.classList.add("has-modal-open");
       document.body.classList.add("has-modal-open"); 
     } else {
-      document.body.style.overflow = "unset";       
+      document.documentElement.classList.remove("has-modal-open");
       document.body.classList.remove("has-modal-open"); 
     }
-
     return () => { 
-      document.body.style.overflow = "unset";
+      document.documentElement.classList.remove("has-modal-open");
       document.body.classList.remove("has-modal-open");
     };
   }, [selectedService]);
@@ -73,8 +72,8 @@ export function Services() {
                 onClick={(e) => e.stopPropagation()}
                 className="relative w-full max-w-4xl h-[85vh] md:h-[600px] bg-[#f4f4f0] rounded-lg overflow-hidden shadow-2xl flex flex-col"
               >
-                {/* Imagem de Fundo */}
-                <div className="absolute inset-0 z-0">
+                {/* --- IMAGEM DE FUNDO DESKTOP --- */}
+                <div className="hidden md:block absolute inset-0 z-0">
                   <Image 
                     src={selectedService.image} 
                     alt={selectedService.title} 
@@ -82,6 +81,17 @@ export function Services() {
                     className="object-cover opacity-20 md:opacity-100" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#f4f4f0] via-[#f4f4f0]/95 to-transparent md:bg-gradient-to-r md:from-[#f4f4f0] md:via-[#f4f4f0]/95 md:to-transparent" />
+                </div>
+
+                {/* --- IMAGEM DE FUNDO MOBILE (RODAPÉ) --- */}
+                <div className="md:hidden absolute bottom-0 left-0 w-full h-[40%] z-0 pointer-events-none">
+                   <Image 
+                    src={selectedService.image} 
+                    alt={selectedService.title} 
+                    fill 
+                    className="object-cover opacity-100" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#f4f4f0] via-[#f4f4f0]/60 to-transparent" />
                 </div>
 
                 {/* Botão Fechar */}
@@ -93,31 +103,47 @@ export function Services() {
                 </button>
 
                 {/* Conteúdo Textual */}
-                <div className="relative z-10 w-full md:w-2/3 h-full p-6 md:p-12 flex flex-col justify-center overflow-y-auto">
-                  <div className="mb-6 mt-8 md:mt-0"> 
-                    <span className="text-[#d4a373] font-bold tracking-widest uppercase text-xs mb-2 block">Detalhes do Tratamento</span>
-                    <h3 className="text-3xl md:text-5xl font-serif text-[#1a2e22] mb-6 leading-tight">
+                <div className="relative z-10 w-full md:w-2/3 h-full flex flex-col">
+                  
+                  {/* 1. CABEÇALHO FIXO */}
+                  <div className="pt-8 px-6 md:pt-12 md:px-12 pb-2 shrink-0">
+                    <h3 className="text-3xl md:text-5xl font-serif text-[#1a2e22] leading-tight">
                       {selectedService.title}
                     </h3>
-                    
-                    <div className="prose prose-lg text-[#1a2e22]/80 leading-relaxed max-h-[45vh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-[#1a2e22]/20">
+                  </div>
+                  
+                  {/* 2. CORPO (Texto com Rolagem) */}
+                  <div 
+                    className="modal-scroll-content flex-1 overflow-y-auto px-6 md:px-12 py-2 scrollbar-thin scrollbar-thumb-[#1a2e22]/20 scrollbar-track-transparent"
+                    data-lenis-prevent="true"
+                  >
+                    <div className="prose prose-lg text-[#1a2e22]/80 leading-relaxed">
                       <p className="mb-4 font-medium">{selectedService.description}</p>
-                      
-                      {/* CORREÇÃO AQUI: Adicionado 'whitespace-pre-wrap' para respeitar os Enters */}
                       <p className="whitespace-pre-wrap">{selectedService.details}</p>
-                      
                     </div>
                   </div>
 
-                  <div className="mt-auto pt-6 border-t border-[#1a2e22]/10">
+                  {/* 3. RODAPÉ FIXO (Botão + Preço) */}
+                  {/* Ajustei para FLEX: Botão na esquerda, Preço na direita */}
+                  <div className="pb-8 px-6 md:pb-12 md:px-12 pt-6 shrink-0 md:bg-transparent flex items-center justify-between gap-4">
+                    
                     <Link 
                       href="/terapias" 
-                      className="inline-flex items-center gap-3 bg-[#1a2e22] text-[#f4f4f0] px-8 py-4 rounded-full uppercase text-xs font-bold tracking-widest hover:bg-[#4a6741] transition-all cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-1"
+                      className="inline-flex items-center gap-2 bg-[#1a2e22] text-[#f4f4f0] px-6 py-3 rounded-full uppercase text-xs font-bold tracking-widest hover:bg-[#4a6741] transition-all cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-1"
                     >
-                      Ver Menu Completo
+                      Ver Catálogo
                       <ArrowUpRight size={16} />
                     </Link>
+
+                    {/* PREÇO */}
+                    <div className="text-right">
+                        <span className="text-2xl font-serif text-[#1a2e22]">
+                            R$ {selectedService.price}
+                        </span>
+                    </div>
+
                   </div>
+
                 </div>
               </motion.div>
             </motion.div>
@@ -129,7 +155,7 @@ export function Services() {
   );
 }
 
-// --- COMPONENTES AUXILIARES (Mantidos) ---
+// --- COMPONENTES AUXILIARES ---
 
 function ScrollableRow({ data, direction, speed, onSelect }: { data: any[], direction: "left" | "right", speed: number, onSelect: (s: any) => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -195,10 +221,12 @@ function ScrollableRow({ data, direction, speed, onSelect }: { data: any[], dire
     const walk = (x - startX.current) * 1.5;
     containerRef.current.scrollLeft = scrollLeftStart.current - walk;
   };
+  
+  // MANTIDO 3000ms
   const handleMouseUpOrLeave = () => {
     if (isDragging) {
       setIsDragging(false);
-      timerRef.current = setTimeout(() => { setIsPaused(false); }, 2000);
+      timerRef.current = setTimeout(() => { setIsPaused(false); }, 3000);
     }
   };
   const handleMouseEnterSection = () => document.body.classList.add("grabbing-mode");
@@ -215,7 +243,8 @@ function ScrollableRow({ data, direction, speed, onSelect }: { data: any[], dire
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
         onTouchStart={() => { setIsPaused(true); if (timerRef.current) clearTimeout(timerRef.current); }}
-        onTouchEnd={() => { timerRef.current = setTimeout(() => setIsPaused(false), 2000); }}
+        // MANTIDO 3000ms
+        onTouchEnd={() => { timerRef.current = setTimeout(() => setIsPaused(false), 3000); }}
         className={`flex gap-8 overflow-x-auto pb-8 px-8 md:px-20 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} scrollbar-thin scrollbar-track-[#1a2e22]/5 scrollbar-thumb-[#1a2e22]/40 hover:scrollbar-thumb-[#4a6741] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-[#1a2e22]/5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#1a2e22]/40 [&::-webkit-scrollbar-thumb]:rounded-full`}
       >
         {data.map((service, index) => (
