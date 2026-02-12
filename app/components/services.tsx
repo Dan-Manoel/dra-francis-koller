@@ -6,9 +6,9 @@ import { ArrowUpRight } from "lucide-react";
 
 // --- DADOS ---
 const SERVICES_TOP_RAW = [
-  { id: 1, title: "Ortopedia Integrativa", description: "Tratamento da causa raiz conectando corpo e metabolismo.", image: "/services/servico-1.jpg" },
-  { id: 2, title: "Terapia da Dor", description: "Tecnologia avançada para alívio de dores crônicas.", image: "/services/servico-2.jpg" },
-  { id: 3, title: "Infiltração Guiada", description: "Precisão máxima no tratamento articular.", image: "/services/servico-3.jpg" },
+  { id: 1, title: "Ortopedia Integrativa", description: "Tratamento da causa raiz conectando corpo e metabolismo.", image: "/services/cone.jpg" },
+  { id: 2, title: "Terapia da Dor", description: "Tecnologia avançada para alívio de dores crônicas.", image: "/services/florais.jpg" },
+  { id: 3, title: "Infiltração Guiada", description: "Precisão máxima no tratamento articular.", image: "/services/reiki.jpg" },
   { id: 4, title: "Protocolos de Coluna", description: "Recuperação de mobilidade sem cirurgia agressiva.", image: "/services/servico-4.jpg" },
   { id: 5, title: "Saúde Óssea", description: "Prevenção e tratamento avançado de osteoporose.", image: "/services/servico-1.jpg" },
 ];

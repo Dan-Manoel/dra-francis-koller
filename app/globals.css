@@ -82,3 +82,20 @@ body.grabbing-mode .fixed.top-0.left-0.w-8.h-8 {
 .cursor-grabbing {
   cursor: grabbing;
 }
+/* ... (seu código anterior) ... */
+
+/* FORÇAR MÃOZINHA EM LINKS E BOTÕES */
+a, 
+button, 
+[type="button"], 
+[type="submit"], 
+.cursor-pointer {
+  cursor: pointer !important;
+}
+/* --- FORÇAR CURSOR NATIVO EM TODOS OS LINKS --- */
+/* O !important garante que ganhe de qualquer classe do Tailwind */
+html body a,
+html body button,
+html body .cursor-pointer {
+  cursor: pointer !important;
+}
