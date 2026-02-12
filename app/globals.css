@@ -73,42 +73,13 @@ html body a, html body button, html body .cursor-pointer {
   cursor: pointer !important;
 }
 
-/* --- ESTADOS DO MODAL (FOCUS MODE) --- */
-
-/* 1. TRAVA DE SCROLL DEFINITIVA */
-body.has-modal-open {
-  overflow: hidden !important;    /* Impede rolagem */
-  height: 100vh !important;       /* Trava altura da tela */
-  touch-action: none;             /* Impede arrastar o fundo no mobile */
-  position: relative;             /* Estabilidade */
-}
-
-/* 2. ESCONDER MENU E CABEÇALHO */
-body.has-modal-open header,
-body.has-modal-open .fixed.top-0 {
-  opacity: 0 !important;
-  pointer-events: none !important;
-  visibility: hidden !important; 
-  transition: opacity 0.3s ease, visibility 0.3s;
-}
-
-/* 3. REBAIXAR FOOTER */
-body.has-modal-open footer {
-  z-index: 0 !important;
-  position: relative;
-}
-
-/* 4. ELEVAR MODAL ACIMA DE TUDO */
-body.has-modal-open .modal-overlay {
-  z-index: 2147483647 !important;
-}
 /* --- ESTADOS DO MODAL (FOCUS MODE & TRAVA TOTAL) --- */
 
 /* Aplicamos no HTML e BODY para garantir que o Lenis e o Mobile respeitem */
 html.has-modal-open,
 body.has-modal-open {
   overflow: hidden !important;
-  height: 100vh !important;
+  /* CORREÇÃO: Removido 'height: 100vh' para evitar que a página pule para o topo */
   touch-action: none; /* Bloqueia gestos de toque no fundo */
 }
 
@@ -119,7 +90,8 @@ body.has-modal-open {
 
 /* Esconder elementos de fundo */
 body.has-modal-open header,
-body.has-modal-open .fixed.top-0 {
+body.has-modal-open .fixed.top-0,
+body.has-modal-open .whatsapp-button {
   opacity: 0 !important;
   pointer-events: none !important;
   visibility: hidden !important;

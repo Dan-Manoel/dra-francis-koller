@@ -51,30 +51,40 @@ export default function SobrePage() {
             </h1>
         </motion.div>
 
-        {/* Seção 1: Bio Principal 
-           CORREÇÃO: items-start garante que a imagem fique no topo no desktop sem pular.
-           No mobile, o grid empilha automaticamente.
-        */}
+        {/* Seção 1: Bio Principal */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-32">
             
-            {/* Imagem Principal */}
-            {/* CORREÇÃO: Removido 'sticky', 'top-32' e 'fixed'. Agora é relativo padrão. */}
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-2xl"
-            >
-                <Image 
-                    src="/hero_profile_francis.jpg" 
-                    alt="Dra. Francis Koller" 
-                    fill 
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                />
-            </motion.div>
+            {/* COLUNA ESQUERDA: Imagem + Texto "Tamboreira" */}
+            <div className="flex flex-col gap-8">
+                {/* Imagem */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-2xl"
+                >
+                    <Image 
+                        src="/hero_profile_francis.jpg" 
+                        alt="Dra. Francis Koller" 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                </motion.div>
 
-            {/* Texto da Bio */}
+                {/* Texto Movido para cá (Legenda da foto) */}
+                <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="border-l-4 border-[#d4a373] pl-4 italic text-[#1a2e22] text-sm md:text-base leading-relaxed"
+                >
+                    Tamboreira há mais de 12 anos, entre Círculos de Mulheres e de pessoas que buscam o autoconhecimento, também busco favorecer esse processo de autocura em atendimentos individuais através das terapias bioxamânicas.
+                </motion.p>
+            </div>
+
+            {/* COLUNA DIREITA: Texto Bio Principal */}
             <motion.div 
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -105,9 +115,7 @@ export default function SobrePage() {
                     <p>
                         Como facilitadora, pesquisadora e terapeuta, trago ao meu trabalho uma visão ampla: corpo, mente, emoções e espírito como expressões interligadas de uma mesma inteligência vital. Minha trajetória profissional nasceu de um chamado profundo: compreender a dor humana em todas as suas camadas — do corpo físico às memórias emocionais, do sistema nervoso às raízes ancestrais que moldam nossa percepção de mundo.
                     </p>
-                    <p className="border-l-4 border-[#d4a373] pl-4 italic text-[#1a2e22]">
-                        Tamboreira há mais de 12 anos, entre Círculos de Mulheres e de pessoas que buscam o autoconhecimento, também busco favorecer esse processo de autocura em atendimentos individuais através das terapias bioxamânicas.
-                    </p>
+                    {/* O parágrafo da Tamboreira foi removido daqui */}
                 </div>
             </motion.div>
         </div>
@@ -151,7 +159,6 @@ export default function SobrePage() {
             </div>
 
             {/* Coluna da Direita: Imagens Harmonizadas */}
-            {/* CORREÇÃO: items-start para não esticar as imagens e remover sticky */}
             <div className="md:col-span-5 grid grid-cols-2 gap-4 order-1 md:order-2 self-start">
                 <motion.div 
                     whileHover={{ scale: 1.02 }}

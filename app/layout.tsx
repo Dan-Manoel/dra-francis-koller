@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { SmoothScroll } from "./components/smooth-scroll";
+import { WhatsAppFloat } from "./components/whatsapp-float"; 
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,7 +22,6 @@ const playfair = Playfair_Display({
 
 // --- CONFIGURAÇÃO DE SEO E OPEN GRAPH ---
 export const metadata: Metadata = {
-  // IMPORTANTE: Troque pela URL final quando publicar na Vercel
   metadataBase: new URL("https://drafranciskooler.com.br"), 
 
   title: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Dra. Francis Koller",
     images: [
       {
-        url: "/og.jpg", // Certifique-se de que og.jpg está na pasta public
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "Dra. Francis Koller - Terapia Integrativa",
@@ -81,6 +81,10 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
         </SmoothScroll>
+
+        {/* Botão Flutuante do WhatsApp */}
+        <WhatsAppFloat />
+        
       </body>
     </html>
   );

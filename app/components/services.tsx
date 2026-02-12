@@ -41,9 +41,6 @@ export function Services() {
   return (
     <section className="relative z-10 py-24 bg-[#f4f4f0] overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 md:px-20 mb-16 text-center">
-        <span className="uppercase tracking-[0.2em] text-xs font-medium text-[#1a2e22]/60 mb-4 block">
-          Nossas Especialidades
-        </span>
         <h2 className="text-4xl md:text-6xl font-serif text-[#1a2e22]">
           Protocolos Exclusivos
         </h2>
@@ -124,7 +121,6 @@ export function Services() {
                   </div>
 
                   {/* 3. RODAPÉ FIXO (Botão + Preço) */}
-                  {/* Ajustei para FLEX: Botão na esquerda, Preço na direita */}
                   <div className="pb-8 px-6 md:pb-12 md:px-12 pt-6 shrink-0 md:bg-transparent flex items-center justify-between gap-4">
                     
                     <Link 
@@ -166,6 +162,11 @@ function ScrollableRow({ data, direction, speed, onSelect }: { data: any[], dire
   const [isPaused, setIsPaused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  
+  // Controle de "arrasto" vs "clique"
+  const didMove = useRef(false);
+  // Controle de "Primeiro Clique (Parar)" vs "Segundo Clique (Abrir)"
+  const [hasStopped, setHasStopped] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -204,31 +205,63 @@ function ScrollableRow({ data, direction, speed, onSelect }: { data: any[], dire
     return () => cancelAnimationFrame(animationFrameId);
   }, [isInitialized, isPaused, isDragging, direction, speed]);
 
+  // Função centralizada para retomar o scroll e resetar o estado de clique
+  const startResumeTimer = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      setIsPaused(false);
+      setHasStopped(false); // Reseta: o próximo clique terá que parar novamente
+    }, 3000);
+  };
+
   const handleMouseDown = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest('button')) return;
     setIsDragging(true);
     setIsPaused(true);
+    didMove.current = false; 
+    
     if (timerRef.current) clearTimeout(timerRef.current);
     if (containerRef.current) {
       startX.current = e.pageX - containerRef.current.offsetLeft;
       scrollLeftStart.current = containerRef.current.scrollLeft;
     }
   };
+
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging || !containerRef.current) return;
     e.preventDefault();
     const x = e.pageX - containerRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
     containerRef.current.scrollLeft = scrollLeftStart.current - walk;
+
+    if (Math.abs(x - startX.current) > 5) {
+      didMove.current = true;
+    }
   };
   
-  // MANTIDO 3000ms
   const handleMouseUpOrLeave = () => {
     if (isDragging) {
       setIsDragging(false);
-      timerRef.current = setTimeout(() => { setIsPaused(false); }, 3000);
+      startResumeTimer(); // Usa a função centralizada
     }
   };
+
+  const handleCardClick = (service: any) => {
+    if (didMove.current) return;
+
+    // LÓGICA DO CLIQUE DUPLO:
+    // 1. Se ainda não paramos o carrossel (hasStopped = false), o clique serve para PARAR.
+    if (!hasStopped) {
+      setHasStopped(true);
+      setIsPaused(true);
+      if (timerRef.current) clearTimeout(timerRef.current); // Cancela o resume automático imediato, mantendo pausado
+      return; 
+    }
+
+    // 2. Se já estava parado (hasStopped = true), o clique ABRE o modal.
+    onSelect(service);
+  };
+
   const handleMouseEnterSection = () => document.body.classList.add("grabbing-mode");
   const handleMouseLeaveSection = () => {
     document.body.classList.remove("grabbing-mode");
@@ -243,30 +276,33 @@ function ScrollableRow({ data, direction, speed, onSelect }: { data: any[], dire
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
         onTouchStart={() => { setIsPaused(true); if (timerRef.current) clearTimeout(timerRef.current); }}
-        // MANTIDO 3000ms
-        onTouchEnd={() => { timerRef.current = setTimeout(() => setIsPaused(false), 3000); }}
+        onTouchEnd={() => { startResumeTimer(); }} // Usa a função centralizada
         className={`flex gap-8 overflow-x-auto pb-8 px-8 md:px-20 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} scrollbar-thin scrollbar-track-[#1a2e22]/5 scrollbar-thumb-[#1a2e22]/40 hover:scrollbar-thumb-[#4a6741] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-[#1a2e22]/5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#1a2e22]/40 [&::-webkit-scrollbar-thumb]:rounded-full`}
       >
         {data.map((service, index) => (
-          <ServiceCard key={`${service.id}-${index}`} service={service} onSelect={onSelect} />
+          <ServiceCard key={`${service.id}-${index}`} service={service} onCardClick={() => handleCardClick(service)} />
         ))}
       </div>
     </div>
   );
 }
 
-function ServiceCard({ service, onSelect }: { service: any, onSelect: (s: any) => void }) {
+function ServiceCard({ service, onCardClick }: { service: any, onCardClick: () => void }) {
   return (
-    <div className="relative group overflow-hidden rounded-lg w-[300px] md:w-[600px] aspect-[16/9] md:aspect-[4/3] shrink-0 select-none">
+    <div 
+      onClick={onCardClick}
+      className="relative group overflow-hidden rounded-lg w-[300px] md:w-[600px] aspect-[16/9] md:aspect-[4/3] shrink-0 select-none cursor-pointer"
+    >
       <Image src={service.image} alt={service.title} fill className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110" draggable={false} />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/40 to-transparent opacity-90 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/0 to-transparent opacity-20 pointer-events-none" />
+      
       <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 flex justify-between items-end pointer-events-none">
         <div className="max-w-[85%]">
           <h3 className="text-2xl md:text-3xl font-serif text-[#1a2e22] mb-2">{service.title}</h3>
           <p className="text-sm md:text-base text-[#1a2e22]/80 font-medium leading-relaxed">{service.description}</p>
         </div>
         <button 
-          onClick={(e) => { e.stopPropagation(); onSelect(service); }}
+          onClick={(e) => { e.stopPropagation(); onCardClick(); }}
           className="bg-[#1a2e22] text-[#f4f4f0] p-3 rounded-full translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg pointer-events-auto cursor-pointer hover:bg-[#4a6741] hover:scale-110"
         >
            <ArrowUpRight size={20} />

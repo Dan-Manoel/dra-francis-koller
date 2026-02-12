@@ -9,7 +9,7 @@ export default function Home() {
     <div className="relative min-h-[200vh] bg-[#f4f4f0] overflow-hidden">
       
       {/* Background Estático (Server Side Rendered) */}
-      <div className="fixed inset-0 z-0 pointer-events-none md:opacity-30">
+      <div className="fixed inset-0 z-0 pointer-events-none md:opacity-40">
         <Image 
           src="/palm-fan.png" 
           alt="Background Texture" 
