@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
 
 // --- CONFIGURAÇÃO DE SEO E OPEN GRAPH ---
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drafranciskooler.com.br"), 
+  metadataBase: new URL("https://drafranciskoller.com.br"), 
 
   title: {
     default: "Dra. Francis Koller | Terapia Integrativa",
