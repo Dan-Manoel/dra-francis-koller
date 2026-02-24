@@ -9,30 +9,28 @@ import { CONTACT_INFO } from "../constants";
 export function Hero() {
   const containerRef = useRef(null);
 
-  // Configuração do Scroll
+  // Scroll Position Tracking
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // --- PARALLAX ---
-  // A imagem desce suavemente
+  // --- PARALLAX ANIMATIONS ---
+  // Downward image translation based on scroll
   const yImage = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  // O texto sobe levemente
+  // Upward text translation based on scroll
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
   return (
     <main ref={containerRef} className="relative z-10 pt-32 px-8 md:px-20 max-w-7xl mx-auto h-screen flex flex-col justify-center">
 
-      {/* --- IMAGEM DA DRA. FRANCIS (Abstrata) --- */}
+      {/* --- ABSTRACT HERO IMAGE --- */}
       <motion.div
         style={{ y: yImage }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        // AJUSTE FINO DE POSIÇÃO:
-        // md:-top-[5%] -> Sobe apenas um pouco para fora do alinhamento (elegante)
-        // md:-right-[5%] -> Desloca levemente para a direita
+        // FINE-TUNED POSITIONING: Misaligned upward and rightward for an elegant overlapping layout
         className="absolute right-0 md:-right-[5%] top-[15%] md:-top-[-10%] w-[60vw] md:w-[40vw] max-w-[550px] aspect-[4/5] -z-10"
       >
         <div className="relative w-full h-full overflow-hidden rounded-[60%_40%_30%_70%/60%_30%_70%_40%] shadow-2xl shadow-[#1a2e22]/10">
@@ -47,11 +45,11 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Wrapper do Texto com Parallax */}
+      {/* Parallax Text Wrapper */}
       <motion.div style={{ y: yText }} className="relative z-10">
 
-        {/* TEXTO HERO 1 */}
-        {/* AJUSTE: py-4 evita cortes | text-[11vw] mantém grandioso sem estourar */}
+        {/* HERO TYPOGRAPHY: LINE 1 */}
+        {/* Responsive typography scaling and padding to prevent clipping */}
         <div className="overflow-hidden py-4">
           <motion.h1
             initial={{ y: "100%" }}
@@ -63,8 +61,8 @@ export function Hero() {
           </motion.h1>
         </div>
 
-        {/* TEXTO HERO 2 */}
-        {/* AJUSTE: py-4 evita cortes | Margem negativa controlada */}
+        {/* HERO TYPOGRAPHY: LINE 2 */}
+        {/* Controlled negative margin for overlapping text effect */}
         <div className="overflow-hidden py-4 -mt-4 md:-mt-8">
           <motion.h1
             initial={{ y: "100%" }}
@@ -88,9 +86,9 @@ export function Hero() {
           </p>
 
           <a
-            href={CONTACT_INFO.whatsappLink} // Usa o link do seu arquivo constants
-            target="_blank"                  // Abre em nova aba
-            rel="noopener noreferrer"        // Segurança padrão para links externos
+            href={CONTACT_INFO.whatsappLink} // Sourced from centralized constants
+            target="_blank"                  // Opens in a new tab
+            rel="noopener noreferrer"        // Standard security for external links
             className="mt-8 md:mt-0 group flex items-center gap-4 border-b border-[#1a2e22] pb-2 cursor-none"
           >
             <span className="uppercase tracking-widest text-sm font-semibold">Agendar Consulta</span>

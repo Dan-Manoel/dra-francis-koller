@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { SmoothScroll } from "./components/smooth-scroll";
-import { WhatsAppFloat } from "./components/whatsapp-float"; 
+import { WhatsAppFloat } from "./components/whatsapp-float";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,21 +20,21 @@ const playfair = Playfair_Display({
   weight: ["400", "600", "700"],
 });
 
-// --- CONFIGURAÇÃO DE SEO E OPEN GRAPH ---
+// --- SEO AND OPEN GRAPH CONFIGURATION ---
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drafranciskoller.com.br"), 
+  metadataBase: new URL("https://drafranciskoller.com.br"),
 
   title: {
     default: "Dra. Francis Koller | Terapia Integrativa",
     template: "%s | Dra. Francis Koller",
   },
   description: "Fisioterapia e Terapia Integrativa com abordagem holística. Restaurando a harmonia natural do corpo através de tratamentos personalizados.",
-  
+
   keywords: ["Fisioterapia", "Terapia Integrativa", "Dra Francis Koller", "Saúde Holística", "Dor Crônica", "Tratamento Natural"],
-  
+
   authors: [{ name: "Dra. Francis Koller" }, { name: "AboveDigital", url: "https://abovedigital.com.br" }],
-  
-  // Facebook / WhatsApp / LinkedIn
+
+  // Social Media Open Graph Tags (Facebook / WhatsApp / LinkedIn)
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter
+  // Twitter Card Configuration
   twitter: {
     card: "summary_large_image",
     title: "Dra. Francis Koller | Terapia Integrativa",
@@ -76,15 +76,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-background text-foreground selection:bg-leaf/30`}
       >
         <div className="bg-noise" />
-        
-        {/* Envolvendo tudo com o Smooth Scroll Global */}
+
+        {/* Global Smooth Scroll Wrapper */}
         <SmoothScroll>
           {children}
         </SmoothScroll>
 
-        {/* Botão Flutuante do WhatsApp */}
+        {/* Floating WhatsApp Action Button */}
         <WhatsAppFloat />
-        
+
       </body>
     </html>
   );

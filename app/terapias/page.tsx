@@ -63,7 +63,7 @@ export default function TerapiasPage() {
               className={`group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border-2 ${isSelected ? "border-[#d4a373]" : "border-transparent"
                 }`}
             >
-              {/* --- 1. IMAGEM DE FUNDO (Cobre tudo) --- */}
+              {/* Background Image Layer */}
               <div className="absolute inset-0 z-0">
                 <Image
                   src={service.image}
@@ -73,10 +73,10 @@ export default function TerapiasPage() {
                 />
               </div>
 
-              {/* --- 2. DEGRADÊ (Para leitura do texto) --- */}
+              {/* Legibility Gradient Overlay */}
               <div className="absolute inset-0 z-10 bg-gradient-to-b from-white via-white/60 to-transparent pointer-events-none" />
 
-              {/* OVERLAY DE SELEÇÃO (Check Dourado) */}
+              {/* Selection Check Overlay */}
               <AnimatePresence>
                 {isSelected && (
                   <motion.div
@@ -92,8 +92,8 @@ export default function TerapiasPage() {
                 )}
               </AnimatePresence>
 
-              {/* --- 3. CONTEÚDO (Texto sobreposto) --- */}
-              {/* pb-32 para garantir que o texto não desça demais sobre a imagem no fundo */}
+              {/* Content Overlay */}
+              {/* pb-32 prevents text from bleeding into the image focus area */}
               <div className="relative z-10 p-8 md:p-12 pb-32 flex flex-col justify-between h-full">
                 <div>
                   <div className="flex justify-between items-start mb-6">
@@ -109,8 +109,7 @@ export default function TerapiasPage() {
                   </div>
                 </div>
 
-                {/* BOTÃO E PREÇO NO RODAPÉ DO CARD */}
-                {/* CORREÇÃO: Removi o box (bg-white/50, rounded, etc) e mantive apenas a borda superior (border-t) */}
+                {/* Card Footer Actions */}
                 <div className="flex justify-between items-end border-t border-[#1a2e22]/10 pt-6 mt-8">
 
 
@@ -119,8 +118,8 @@ export default function TerapiasPage() {
                   <button
                     onClick={() => toggleSelection(service.id)}
                     className={`px-6 py-3 md:px-8 md:py-4 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer flex items-center gap-2 shadow-lg ${isSelected
-                        ? "bg-[#1a2e22] text-[#f4f4f0] hover:bg-[#2a4535]"
-                        : "bg-white border border-[#1a2e22] text-[#1a2e22] hover:bg-[#1a2e22] hover:text-[#f4f4f0]"
+                      ? "bg-[#1a2e22] text-[#f4f4f0] hover:bg-[#2a4535]"
+                      : "bg-white border border-[#1a2e22] text-[#1a2e22] hover:bg-[#1a2e22] hover:text-[#f4f4f0]"
                       }`}
                   >
                     {isSelected ? <>Remover</> : <>Selecionar <Plus size={14} /></>}

@@ -8,7 +8,7 @@ import { ArrowUpRight, X } from "lucide-react";
 import { motion, AnimatePresence, useMotionValue, useAnimationFrame, useMotionValueEvent } from "framer-motion";
 import { SERVICES_DATA } from "../data/services-data";
 
-// --- PREPARAÇÃO DOS DADOS ---
+// --- DATA PREPARATION ---
 const half = Math.ceil(SERVICES_DATA.length / 2);
 const SERVICES_TOP = SERVICES_DATA.slice(0, half);
 const SERVICES_BOTTOM = SERVICES_DATA.slice(half);
@@ -21,7 +21,7 @@ export function Services() {
     setMounted(true);
   }, []);
 
-  // --- LÓGICA DE TRAVAMENTO (LENIS COMPATIBLE) ---
+  // --- LENIS-COMPATIBLE SCROLL LOCK LOGIC ---
   useEffect(() => {
     if (selectedService) {
       document.documentElement.classList.add("has-modal-open");
@@ -144,7 +144,7 @@ export function Services() {
   );
 }
 
-// --- COMPONENTES AUXILIARES ---
+// --- AUXILIARY COMPONENTS ---
 
 function ScrollableRow({ data, direction, speed, onSelect, isModalOpen = false }: { data: any[], direction: "left" | "right", speed: number, onSelect: (s: any) => void, isModalOpen?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -154,36 +154,36 @@ function ScrollableRow({ data, direction, speed, onSelect, isModalOpen = false }
   const [isManuallyPaused, setIsManuallyPaused] = useState(false);
   const pauseTimer = useRef<NodeJS.Timeout | null>(null);
 
-  // Track pointer down coordinates to distinguish between click and drag
+  // Tracks pointer down coordinates to distinguish between click events and drag actions.
   const pointerDownPos = useRef({ x: 0, y: 0 });
 
   const x = useMotionValue(0);
   const isInitialized = useRef(false);
   const isFirstPlay = useRef(true);
 
-  // Measure content width (one full set)
+  // Measures the width of a single set of content for infinite looping math
   useEffect(() => {
     const measure = () => {
       if (containerRef.current) {
         const measuredWidth = containerRef.current.scrollWidth / 2;
         setContentWidth(measuredWidth);
 
-        // Offset inicial para desalinhar as duas linhas (apenas na 1x)
+        // Applies an initial offset to misalign the rows visually on first load
         if (!isInitialized.current && measuredWidth > 0) {
           isInitialized.current = true;
           if (direction === "right") {
-            x.set(-measuredWidth / 2.5); // Empurra para a esquerda inicialmente
+            x.set(-measuredWidth / 2.5);
           }
         }
       }
     };
     measure();
-    setTimeout(measure, 500); // Aguarda carregamento de imagens/fontes
+    setTimeout(measure, 500); // Wait for fonts and images to load before final measurement
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
   }, [data]);
 
-  // Wrap x value seamlessly to create infinite loop
+  // Wraps the x value seamlessly to create an infinite loop effect
   useMotionValueEvent(x, "change", (latest) => {
     if (contentWidth === 0) return;
     if (latest <= -contentWidth) {
@@ -204,7 +204,7 @@ function ScrollableRow({ data, direction, speed, onSelect, isModalOpen = false }
   useEffect(() => {
     if (!isModalOpen && contentWidth > 0) {
       if (isFirstPlay.current) {
-        // Começa a rodar instantaneamente na primeira vez
+        // Starts animating instantly on the first render
         setIsManuallyPaused(false);
         isFirstPlay.current = false;
       } else {
@@ -219,24 +219,24 @@ function ScrollableRow({ data, direction, speed, onSelect, isModalOpen = false }
 
   useAnimationFrame((time, delta) => {
     if (isManuallyPaused || isModalOpen || isDragging || contentWidth === 0) return;
-    // Reduzido para 30% da velocidade anterior aproximadamente
+    // Reduced speed to roughly 30% of the normal delta for smoother UX
     const moveBy = direction === "left" ? -speed * (delta / 8) : speed * (delta / 8);
     x.set(x.get() + moveBy);
   });
 
   const handleCardClick = (service: any, e: React.MouseEvent) => {
-    // Calcula a distância entre o pointer down e o click up
+    // Distinguishes between drag and click by calculating the distance traveled
     const distX = Math.abs(e.clientX - pointerDownPos.current.x);
     const distY = Math.abs(e.clientY - pointerDownPos.current.y);
 
-    // Se arrastou mais de 5 pixels, ignora o clique (foi um drag)
+    // If dragged more than 5px, ignore the click event
     if (distX > 5 || distY > 5) return;
 
     if (!isManuallyPaused && !isModalOpen) {
-      // 1º Clique: Pausa
+      // First click: pause the carousel
       startPauseTimer();
     } else {
-      // 2º Clique: Abre modal
+      // Second click: open the details modal
       onSelect(service);
     }
   };
@@ -248,9 +248,9 @@ function ScrollableRow({ data, direction, speed, onSelect, isModalOpen = false }
         className="flex gap-8 w-max cursor-grab active:cursor-grabbing"
         style={{ x }}
         drag="x"
-        dragConstraints={{ left: -10000, right: 10000 }} // Espaço livre para drag
-        dragElastic={0} // Sem efeito borrachinha para drag mais sólido
-        dragMomentum={false} // Para arrastar mais controlado e menos escorregadio
+        dragConstraints={{ left: -10000, right: 10000 }} // Free space for continuous dragging
+        dragElastic={0} // Disables rubber-banding for a more solid drag feel
+        dragMomentum={false} // Disables momentum to ensure controlled stopping
         onPointerDown={(e) => {
           pointerDownPos.current = { x: e.clientX, y: e.clientY };
         }}
@@ -260,7 +260,7 @@ function ScrollableRow({ data, direction, speed, onSelect, isModalOpen = false }
           startPauseTimer();
         }}
       >
-        {/* Renderiza 2 blocos para o loop sem fim */}
+        {/* Renders 2 blocks of the row to establish an endless loop */}
         {[0, 1].map((setIndex) => (
           <div key={`set-${setIndex}`} className="flex gap-8 items-center shrink-0">
             {/* Logo Marker 30% do tamanho (aprox 45px/75px) */}

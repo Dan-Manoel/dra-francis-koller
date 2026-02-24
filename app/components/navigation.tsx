@@ -13,7 +13,7 @@ export function Navigation() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHoveringLink, setIsHoveringLink] = useState(false);
 
-  // Lista de Links do Menu
+  // Menu Links Configuration
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "Terapias", href: "/terapias" },
@@ -21,7 +21,7 @@ export function Navigation() {
     { label: "Contato", href: "/contato" },
   ];
 
-  // Lógica do Cursor
+  // Custom Cursor Logic
   useEffect(() => {
     const updateMouse = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -29,13 +29,13 @@ export function Navigation() {
 
     const checkHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const isInteractive = 
-        target.closest("a") || 
-        target.closest("button") || 
+      const isInteractive =
+        target.closest("a") ||
+        target.closest("button") ||
         target.closest(".cursor-pointer") ||
         target.closest(".cursor-grab") ||
         target.closest(".cursor-grabbing");
-      
+
       setIsHoveringLink(!!isInteractive);
     };
 
@@ -48,7 +48,7 @@ export function Navigation() {
     };
   }, []);
 
-  // Cor Dinâmica: Verde quando fechado (fundo claro), Claro quando aberto (fundo verde)
+  // Dynamic Color Theme: Dark green on light background, light on dark background
   const textColorClass = isMenuOpen ? "text-[#f4f4f0]" : "text-[#1a2e22]";
 
   return (
@@ -70,32 +70,32 @@ export function Navigation() {
         }}
       />
 
-      {/* Header Fixo */}
+      {/* Fixed Navigation Header */}
       <header className="fixed top-0 w-full p-8 flex justify-between items-center z-50">
-        
-        {/* Logo + Nome (Link para Home) */}
-        <Link 
-          href="/" 
+
+        {/* Branding & Logo */}
+        <Link
+          href="/"
           className="flex items-center gap-1.5 group cursor-pointer"
         >
-          {/* Container do Logo (Sempre Original) */}
+          {/* Logo Container */}
           <div className="relative w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform duration-300">
-             <Image 
-               src="/logo.png" 
-               alt="Logo Dra. Francis Koller" 
-               fill 
-               className="object-contain"
-               sizes="(max-width: 768px) 40px, 48px"
-             />
+            <Image
+              src="/logo.png"
+              alt="Logo Dra. Francis Koller"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 40px, 48px"
+            />
           </div>
 
-          {/* Nome da Dra (Muda de cor conforme o menu) */}
+          {/* Dynamic Brand Name */}
           <span className={`text-xl md:text-2xl font-serif font-bold tracking-tighter transition-colors duration-300 ${textColorClass}`}>
             Dra. Francis Koller
           </span>
         </Link>
-        
-        {/* Botão Menu Hambúrguer (Muda de cor conforme o menu) */}
+
+        {/* Hamburger Menu Toggle */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={`flex items-center gap-2 group cursor-pointer transition-colors duration-300 ${textColorClass}`}
@@ -106,7 +106,7 @@ export function Navigation() {
         </button>
       </header>
 
-      {/* Menu Fullscreen (Overlay) */}
+      {/* Fullscreen Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
