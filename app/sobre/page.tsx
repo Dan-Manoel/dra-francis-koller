@@ -71,17 +71,10 @@ export default function SobrePage() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
                 </motion.div>
-
-                {/* Texto Movido para cá (Legenda da foto) */}
-                <motion.p 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="border-l-4 border-[#d4a373] pl-4 italic text-[#1a2e22] text-sm md:text-base leading-relaxed"
-                >
-                    Tamboreira há mais de 12 anos, entre Círculos de Mulheres e de pessoas que buscam o autoconhecimento, também busco favorecer esse processo de autocura em atendimentos individuais através das terapias bioxamânicas.
-                </motion.p>
+                <h3 className="text-xl md:text-2xl font-serif text-[#1a2e22] mb-2 leading-tight italic">
+                    Fisioterapeuta Especialista em Dor, Neuroreabilitação e Saúde Integrativa
+                </h3>
+                
             </div>
 
             {/* COLUNA DIREITA: Texto Bio Principal */}
@@ -92,16 +85,11 @@ export default function SobrePage() {
                 className="prose prose-lg text-[#1a2e22]/80"
             >
                 {/* Subtítulo de Cargos */}
-                <h3 className="text-xl md:text-2xl font-serif text-[#1a2e22] mb-2 leading-tight italic">
-                    Fisioterapeuta Especialista em Dor, Neuroreabilitação e Saúde Integrativa
-                </h3>
-                <span className="block text-sm font-bold tracking-widest text-[#d4a373] uppercase mb-8">
-                    Terapeuta Bioxamânica
-                </span>
+
 
                 <div className="space-y-6 text-base md:text-lg leading-relaxed text-justify md:text-left">
                     <p>
-                        <strong className="text-[#1a2e22]">Sobre a Facilitadora</strong> — Há mais de duas décadas caminhei pela ciência da Neuro Reabilitação, atuando com a prática clínica onde aprendi que cada corpo-mente possui uma linguagem própria e que cada ser tem um ritmo único de autocura.
+                        <strong className="text-[#1a2e22]">Tragetória</strong> — Há mais de duas décadas caminhei pela ciência da Neuro Reabilitação, atuando com a prática clínica onde aprendi que cada corpo-mente possui uma linguagem própria e que cada ser tem um ritmo único de autocura.
                     </p>
                     <p>
                         Com o tempo, também na minha missão na Área da Dor e das Doenças Crônicas Degenerativas, fui integrando técnicas modernas, terapias regenerativas e práticas de cuidado humanizado. Percebi que a dor — física ou emocional — não é um inimigo, mas um mensageiro ancestral, convidando-nos a reconhecer o que precisa ser restaurado.
@@ -116,6 +104,16 @@ export default function SobrePage() {
                         Como facilitadora, pesquisadora e terapeuta, trago ao meu trabalho uma visão ampla: corpo, mente, emoções e espírito como expressões interligadas de uma mesma inteligência vital. Minha trajetória profissional nasceu de um chamado profundo: compreender a dor humana em todas as suas camadas — do corpo físico às memórias emocionais, do sistema nervoso às raízes ancestrais que moldam nossa percepção de mundo.
                     </p>
                     {/* O parágrafo da Tamboreira foi removido daqui */}
+                    {/* Texto Movido para cá (Legenda da foto) */}
+                <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="border-l-4 border-[#d4a373] pl-4 italic text-[#1a2e22] text-sm md:text-base leading-relaxed"
+                >
+                    Terapeuta Bioxamânica há mais de 12 anos, entre Círculos de Mulheres e de pessoas que buscam o autoconhecimento, também busco favorecer esse processo de autocura em atendimentos individuais através das terapias bioxamânicas.
+                </motion.p>
                 </div>
             </motion.div>
         </div>

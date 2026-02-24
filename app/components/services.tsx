@@ -5,15 +5,13 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useAnimationFrame, useMotionValueEvent } from "framer-motion";
 import { SERVICES_DATA } from "../data/services-data";
 
 // --- PREPARAÇÃO DOS DADOS ---
 const half = Math.ceil(SERVICES_DATA.length / 2);
-const topRaw = SERVICES_DATA.slice(0, half);
-const botRaw = SERVICES_DATA.slice(half);
-const SERVICES_TOP = [...topRaw, ...topRaw, ...topRaw, ...topRaw];
-const SERVICES_BOTTOM = [...botRaw, ...botRaw, ...botRaw, ...botRaw];
+const SERVICES_TOP = SERVICES_DATA.slice(0, half);
+const SERVICES_BOTTOM = SERVICES_DATA.slice(half);
 
 export function Services() {
   const [selectedService, setSelectedService] = useState<typeof SERVICES_DATA[0] | null>(null);
@@ -27,12 +25,12 @@ export function Services() {
   useEffect(() => {
     if (selectedService) {
       document.documentElement.classList.add("has-modal-open");
-      document.body.classList.add("has-modal-open"); 
+      document.body.classList.add("has-modal-open");
     } else {
       document.documentElement.classList.remove("has-modal-open");
-      document.body.classList.remove("has-modal-open"); 
+      document.body.classList.remove("has-modal-open");
     }
-    return () => { 
+    return () => {
       document.documentElement.classList.remove("has-modal-open");
       document.body.classList.remove("has-modal-open");
     };
@@ -47,8 +45,8 @@ export function Services() {
       </div>
 
       <div className="flex flex-col gap-16">
-        <ScrollableRow data={SERVICES_TOP} direction="left" speed={0.6} onSelect={setSelectedService} />
-        <ScrollableRow data={SERVICES_BOTTOM} direction="right" speed={0.6} onSelect={setSelectedService} />
+        <ScrollableRow data={SERVICES_TOP} direction="left" speed={0.3} onSelect={setSelectedService} isModalOpen={!!selectedService} />
+        <ScrollableRow data={SERVICES_BOTTOM} direction="right" speed={0.3} onSelect={setSelectedService} isModalOpen={!!selectedService} />
       </div>
 
       {/* --- MODAL COM PORTAL --- */}
@@ -71,28 +69,28 @@ export function Services() {
               >
                 {/* --- IMAGEM DE FUNDO DESKTOP --- */}
                 <div className="hidden md:block absolute inset-0 z-0">
-                  <Image 
-                    src={selectedService.image} 
-                    alt={selectedService.title} 
-                    fill 
-                    className="object-cover opacity-20 md:opacity-100" 
+                  <Image
+                    src={selectedService.image}
+                    alt={selectedService.title}
+                    fill
+                    className="object-cover opacity-20 md:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#f4f4f0] via-[#f4f4f0]/95 to-transparent md:bg-gradient-to-r md:from-[#f4f4f0] md:via-[#f4f4f0]/95 md:to-transparent" />
                 </div>
 
                 {/* --- IMAGEM DE FUNDO MOBILE (RODAPÉ) --- */}
                 <div className="md:hidden absolute bottom-0 left-0 w-full h-[40%] z-0 pointer-events-none">
-                   <Image 
-                    src={selectedService.image} 
-                    alt={selectedService.title} 
-                    fill 
-                    className="object-cover opacity-100" 
+                  <Image
+                    src={selectedService.image}
+                    alt={selectedService.title}
+                    fill
+                    className="object-cover opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-[#f4f4f0] via-[#f4f4f0]/60 to-transparent" />
                 </div>
 
                 {/* Botão Fechar */}
-                <button 
+                <button
                   onClick={() => setSelectedService(null)}
                   className="absolute top-4 right-4 md:top-6 md:right-6 z-50 p-3 bg-[#1a2e22] text-[#f4f4f0] rounded-full hover:bg-[#4a6741] transition-all cursor-pointer shadow-lg"
                 >
@@ -101,16 +99,16 @@ export function Services() {
 
                 {/* Conteúdo Textual */}
                 <div className="relative z-10 w-full md:w-2/3 h-full flex flex-col">
-                  
+
                   {/* 1. CABEÇALHO FIXO */}
                   <div className="pt-8 px-6 md:pt-12 md:px-12 pb-2 shrink-0">
                     <h3 className="text-3xl md:text-5xl font-serif text-[#1a2e22] leading-tight">
                       {selectedService.title}
                     </h3>
                   </div>
-                  
+
                   {/* 2. CORPO (Texto com Rolagem) */}
-                  <div 
+                  <div
                     className="modal-scroll-content flex-1 overflow-y-auto px-6 md:px-12 py-2 scrollbar-thin scrollbar-thumb-[#1a2e22]/20 scrollbar-track-transparent"
                     data-lenis-prevent="true"
                   >
@@ -122,21 +120,16 @@ export function Services() {
 
                   {/* 3. RODAPÉ FIXO (Botão + Preço) */}
                   <div className="pb-8 px-6 md:pb-12 md:px-12 pt-6 shrink-0 md:bg-transparent flex items-center justify-between gap-4">
-                    
-                    <Link 
-                      href="/terapias" 
+
+                    <Link
+                      href="/terapias"
                       className="inline-flex items-center gap-2 bg-[#1a2e22] text-[#f4f4f0] px-6 py-3 rounded-full uppercase text-xs font-bold tracking-widest hover:bg-[#4a6741] transition-all cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-1"
                     >
                       Ver Catálogo
                       <ArrowUpRight size={16} />
                     </Link>
 
-                    {/* PREÇO */}
-                    <div className="text-right">
-                        <span className="text-2xl font-serif text-[#1a2e22]">
-                            R$ {selectedService.price}
-                        </span>
-                    </div>
+
 
                   </div>
 
@@ -153,159 +146,165 @@ export function Services() {
 
 // --- COMPONENTES AUXILIARES ---
 
-function ScrollableRow({ data, direction, speed, onSelect }: { data: any[], direction: "left" | "right", speed: number, onSelect: (s: any) => void }) {
+function ScrollableRow({ data, direction, speed, onSelect, isModalOpen = false }: { data: any[], direction: "left" | "right", speed: number, onSelect: (s: any) => void, isModalOpen?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scrollAccumulator = useRef(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const startX = useRef(0);
-  const scrollLeftStart = useRef(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [contentWidth, setContentWidth] = useState(0);
+
   const [isDragging, setIsDragging] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
-  
-  // Controle de "arrasto" vs "clique"
-  const didMove = useRef(false);
-  // Controle de "Primeiro Clique (Parar)" vs "Segundo Clique (Abrir)"
-  const [hasStopped, setHasStopped] = useState(false);
+  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
+  const pauseTimer = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const container = containerRef.current;
-      if (container) {
-        const middle = (container.scrollWidth - container.clientWidth) / 2;
-        container.scrollLeft = middle;
-        scrollAccumulator.current = middle;
-        setIsInitialized(true);
-      }
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
+  // Track pointer down coordinates to distinguish between click and drag
+  const pointerDownPos = useRef({ x: 0, y: 0 });
 
+  const x = useMotionValue(0);
+  const isInitialized = useRef(false);
+  const isFirstPlay = useRef(true);
+
+  // Measure content width (one full set)
   useEffect(() => {
-    if (!isInitialized) return;
-    let animationFrameId: number;
-    const container = containerRef.current;
-    const autoScroll = () => {
-      if (container) {
-        if (!isPaused && !isDragging) {
-          if (direction === "left") scrollAccumulator.current += speed;
-          else scrollAccumulator.current -= speed;
-          const maxScroll = container.scrollWidth - container.clientWidth;
-          const buffer = 50;
-          if (scrollAccumulator.current >= maxScroll - buffer) scrollAccumulator.current = maxScroll / 2;
-          else if (scrollAccumulator.current <= buffer) scrollAccumulator.current = maxScroll / 2;
-          container.scrollLeft = scrollAccumulator.current;
-        } else {
-          scrollAccumulator.current = container.scrollLeft;
+    const measure = () => {
+      if (containerRef.current) {
+        const measuredWidth = containerRef.current.scrollWidth / 2;
+        setContentWidth(measuredWidth);
+
+        // Offset inicial para desalinhar as duas linhas (apenas na 1x)
+        if (!isInitialized.current && measuredWidth > 0) {
+          isInitialized.current = true;
+          if (direction === "right") {
+            x.set(-measuredWidth / 2.5); // Empurra para a esquerda inicialmente
+          }
         }
       }
-      animationFrameId = requestAnimationFrame(autoScroll);
     };
-    animationFrameId = requestAnimationFrame(autoScroll);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isInitialized, isPaused, isDragging, direction, speed]);
+    measure();
+    setTimeout(measure, 500); // Aguarda carregamento de imagens/fontes
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [data]);
 
-  // Função centralizada para retomar o scroll e resetar o estado de clique
-  const startResumeTimer = () => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      setIsPaused(false);
-      setHasStopped(false); // Reseta: o próximo clique terá que parar novamente
+  // Wrap x value seamlessly to create infinite loop
+  useMotionValueEvent(x, "change", (latest) => {
+    if (contentWidth === 0) return;
+    if (latest <= -contentWidth) {
+      x.jump(latest + contentWidth);
+    } else if (latest >= 0) {
+      x.jump(latest - contentWidth);
+    }
+  });
+
+  const startPauseTimer = () => {
+    setIsManuallyPaused(true);
+    if (pauseTimer.current) clearTimeout(pauseTimer.current);
+    pauseTimer.current = setTimeout(() => {
+      setIsManuallyPaused(false);
     }, 3000);
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest('button')) return;
-    setIsDragging(true);
-    setIsPaused(true);
-    didMove.current = false; 
-    
-    if (timerRef.current) clearTimeout(timerRef.current);
-    if (containerRef.current) {
-      startX.current = e.pageX - containerRef.current.offsetLeft;
-      scrollLeftStart.current = containerRef.current.scrollLeft;
+  useEffect(() => {
+    if (!isModalOpen && contentWidth > 0) {
+      if (isFirstPlay.current) {
+        // Começa a rodar instantaneamente na primeira vez
+        setIsManuallyPaused(false);
+        isFirstPlay.current = false;
+      } else {
+        startPauseTimer();
+      }
+    } else {
+      setIsManuallyPaused(true);
+      if (pauseTimer.current) clearTimeout(pauseTimer.current);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isModalOpen, contentWidth]);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !containerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - containerRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    containerRef.current.scrollLeft = scrollLeftStart.current - walk;
+  useAnimationFrame((time, delta) => {
+    if (isManuallyPaused || isModalOpen || isDragging || contentWidth === 0) return;
+    // Reduzido para 30% da velocidade anterior aproximadamente
+    const moveBy = direction === "left" ? -speed * (delta / 8) : speed * (delta / 8);
+    x.set(x.get() + moveBy);
+  });
 
-    if (Math.abs(x - startX.current) > 5) {
-      didMove.current = true;
+  const handleCardClick = (service: any, e: React.MouseEvent) => {
+    // Calcula a distância entre o pointer down e o click up
+    const distX = Math.abs(e.clientX - pointerDownPos.current.x);
+    const distY = Math.abs(e.clientY - pointerDownPos.current.y);
+
+    // Se arrastou mais de 5 pixels, ignora o clique (foi um drag)
+    if (distX > 5 || distY > 5) return;
+
+    if (!isManuallyPaused && !isModalOpen) {
+      // 1º Clique: Pausa
+      startPauseTimer();
+    } else {
+      // 2º Clique: Abre modal
+      onSelect(service);
     }
-  };
-  
-  const handleMouseUpOrLeave = () => {
-    if (isDragging) {
-      setIsDragging(false);
-      startResumeTimer(); // Usa a função centralizada
-    }
-  };
-
-  const handleCardClick = (service: any) => {
-    if (didMove.current) return;
-
-    // LÓGICA DO CLIQUE DUPLO:
-    // 1. Se ainda não paramos o carrossel (hasStopped = false), o clique serve para PARAR.
-    if (!hasStopped) {
-      setHasStopped(true);
-      setIsPaused(true);
-      if (timerRef.current) clearTimeout(timerRef.current); // Cancela o resume automático imediato, mantendo pausado
-      return; 
-    }
-
-    // 2. Se já estava parado (hasStopped = true), o clique ABRE o modal.
-    onSelect(service);
-  };
-
-  const handleMouseEnterSection = () => document.body.classList.add("grabbing-mode");
-  const handleMouseLeaveSection = () => {
-    document.body.classList.remove("grabbing-mode");
-    handleMouseUpOrLeave();
   };
 
   return (
-    <div className="relative w-full" onMouseEnter={handleMouseEnterSection} onMouseLeave={handleMouseLeaveSection}>
-      <div 
+    <div className="relative w-full overflow-hidden py-4">
+      <motion.div
         ref={containerRef}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUpOrLeave}
-        onTouchStart={() => { setIsPaused(true); if (timerRef.current) clearTimeout(timerRef.current); }}
-        onTouchEnd={() => { startResumeTimer(); }} // Usa a função centralizada
-        className={`flex gap-8 overflow-x-auto pb-8 px-8 md:px-20 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} scrollbar-thin scrollbar-track-[#1a2e22]/5 scrollbar-thumb-[#1a2e22]/40 hover:scrollbar-thumb-[#4a6741] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-[#1a2e22]/5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#1a2e22]/40 [&::-webkit-scrollbar-thumb]:rounded-full`}
+        className="flex gap-8 w-max cursor-grab active:cursor-grabbing"
+        style={{ x }}
+        drag="x"
+        dragConstraints={{ left: -10000, right: 10000 }} // Espaço livre para drag
+        dragElastic={0} // Sem efeito borrachinha para drag mais sólido
+        dragMomentum={false} // Para arrastar mais controlado e menos escorregadio
+        onPointerDown={(e) => {
+          pointerDownPos.current = { x: e.clientX, y: e.clientY };
+        }}
+        onDragStart={() => setIsDragging(true)}
+        onDragEnd={() => {
+          setIsDragging(false);
+          startPauseTimer();
+        }}
       >
-        {data.map((service, index) => (
-          <ServiceCard key={`${service.id}-${index}`} service={service} onCardClick={() => handleCardClick(service)} />
+        {/* Renderiza 2 blocos para o loop sem fim */}
+        {[0, 1].map((setIndex) => (
+          <div key={`set-${setIndex}`} className="flex gap-8 items-center shrink-0">
+            {/* Logo Marker 30% do tamanho (aprox 45px/75px) */}
+            <div className="w-[45px] md:w-[75px] shrink-0 flex items-center justify-center opacity-50 px-2 mx-4 md:mx-8 pointer-events-none select-none">
+              <Image src="/logo.png" alt="Marker" width={75} height={75} className="object-contain" draggable={false} />
+            </div>
+
+            {data.map((service, index) => (
+              <ServiceCard
+                key={`${service.id}-${index}-${setIndex}`}
+                service={service}
+                isPaused={isManuallyPaused || isModalOpen}
+                onCardClick={(e) => handleCardClick(service, e)}
+              />
+            ))}
+          </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
 
-function ServiceCard({ service, onCardClick }: { service: any, onCardClick: () => void }) {
+function ServiceCard({ service, isPaused, onCardClick }: { service: any, isPaused: boolean, onCardClick: (e: React.MouseEvent) => void }) {
   return (
-    <div 
+    <div
       onClick={onCardClick}
-      className="relative group overflow-hidden rounded-lg w-[300px] md:w-[600px] aspect-[16/9] md:aspect-[4/3] shrink-0 select-none cursor-pointer"
+      className={`relative group overflow-hidden rounded-lg w-[300px] md:w-[600px] aspect-[16/9] md:aspect-[4/3] shrink-0 select-none cursor-pointer ${isPaused ? "grayscale-0" : ""}`}
     >
-      <Image src={service.image} alt={service.title} fill className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110" draggable={false} />
+      <Image src={service.image} alt={service.title} fill className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110 pointer-events-none" draggable={false} />
       <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/0 to-transparent opacity-20 pointer-events-none" />
-      
+
       <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 flex justify-between items-end pointer-events-none">
         <div className="max-w-[85%]">
           <h3 className="text-2xl md:text-3xl font-serif text-[#1a2e22] mb-2">{service.title}</h3>
           <p className="text-sm md:text-base text-[#1a2e22]/80 font-medium leading-relaxed">{service.description}</p>
         </div>
-        <button 
-          onClick={(e) => { e.stopPropagation(); onCardClick(); }}
-          className="bg-[#1a2e22] text-[#f4f4f0] p-3 rounded-full translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg pointer-events-auto cursor-pointer hover:bg-[#4a6741] hover:scale-110"
+        <button
+          onClick={(e) => { e.stopPropagation(); onCardClick(e); }}
+          className={`bg-[#1a2e22] text-[#f4f4f0] p-3 rounded-full transition-all duration-300 shadow-lg pointer-events-auto cursor-pointer hover:bg-[#4a6741] hover:scale-110 md:group-hover:translate-y-0 md:group-hover:opacity-100 ${isPaused
+            ? "translate-y-0 opacity-100 md:translate-y-4 md:opacity-0"
+            : "translate-y-4 opacity-0"
+            }`}
         >
-           <ArrowUpRight size={20} />
+          <ArrowUpRight size={20} />
         </button>
       </div>
     </div>
