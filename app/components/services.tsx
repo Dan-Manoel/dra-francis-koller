@@ -37,7 +37,7 @@ export function Services() {
   }, [selectedService]);
 
   return (
-    <section className="relative z-10 py-24 bg-[#f4f4f0] overflow-hidden">
+    <section className="relative z-10 py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 md:px-20 mb-16 text-center">
         <h2 className="text-4xl md:text-6xl font-serif text-[#1a2e22]">
           Protocolos Exclusivos
@@ -122,7 +122,7 @@ export function Services() {
                   <div className="pb-8 px-6 md:pb-12 md:px-12 pt-6 shrink-0 md:bg-transparent flex items-center justify-between gap-4">
 
                     <Link
-                      href="/terapias"
+                      href={`/terapias#service-${selectedService.id}`}
                       className="inline-flex items-center gap-2 bg-[#1a2e22] text-[#f4f4f0] px-6 py-3 rounded-full uppercase text-xs font-bold tracking-widest hover:bg-[#4a6741] transition-all cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-1"
                     >
                       Ver Catálogo

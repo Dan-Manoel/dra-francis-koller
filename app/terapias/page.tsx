@@ -55,6 +55,7 @@ export default function TerapiasPage() {
 
           return (
             <motion.div
+              id={`service-${service.id}`}
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
