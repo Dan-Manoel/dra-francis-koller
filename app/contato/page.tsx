@@ -75,8 +75,8 @@ export default function ContatoPage() {
 
                         <address className="not-italic text-[#1a2e22]/80 mb-8 text-lg">
                             <strong>Consultório Dra. Francis Koller</strong><br />
-                            Atendimento especializado<br />
-                            Sorocaba - SP e Região
+                            R. Antônio Scarpa Pachêco Leite, 330 - Jardim Sao Luis,<br />
+                            Sorocaba - SP
                         </address>
 
                         {/* Google Maps Embed */}
