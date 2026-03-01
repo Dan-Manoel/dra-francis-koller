@@ -26,12 +26,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://drafranciskoller.com.br"),
 
   title: {
-    default: "Dra. Francis Koller | Terapia Integrativa",
+    default: "Dra. Francis Koller | Saúde Integrativa",
     template: "%s | Dra. Francis Koller",
   },
-  description: "Fisioterapia e Terapia Integrativa com abordagem holística. Restaurando a harmonia natural do corpo através de tratamentos personalizados.",
+  description: "Fisioterapia e Saúde Integrativa com abordagem holística. Restaurando a harmonia natural do corpo através de tratamentos personalizados.",
 
-  keywords: ["Fisioterapia", "Terapia Integrativa", "Dra Francis Koller", "Saúde Holística", "Dor Crônica", "Tratamento Natural"],
+  keywords: ["Fisioterapia", "Saúde Integrativa", "Dra Francis Koller", "Saúde Holística", "Dor Crônica", "Tratamento Natural"],
 
   authors: [{ name: "Dra. Francis Koller" }, { name: "AboveDigital", url: "https://abovedigital.com.br" }],
 
@@ -40,15 +40,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: "/",
-    title: "Dra. Francis Koller | Terapia Integrativa",
-    description: "Fisioterapia e Terapia Integrativa com abordagem holística.",
+    title: "Dra. Francis Koller | Saúde Integrativa",
+    description: "Fisioterapia e Saúde Integrativa com abordagem holística.",
     siteName: "Dra. Francis Koller",
     images: [
       {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Dra. Francis Koller - Terapia Integrativa",
+        alt: "Dra. Francis Koller - Saúde Integrativa",
       },
     ],
   },
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
   // Twitter Card Configuration
   twitter: {
     card: "summary_large_image",
-    title: "Dra. Francis Koller | Terapia Integrativa",
-    description: "Fisioterapia e Terapia Integrativa com abordagem holística.",
+    title: "Dra. Francis Koller | Saúde Integrativa",
+    description: "Fisioterapia e Saúde Integrativa com abordagem holística.",
     images: ["/og.jpg"],
   },
 
