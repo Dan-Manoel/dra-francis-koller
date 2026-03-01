@@ -18,6 +18,7 @@ export function Navigation() {
     { label: "Home", href: "/" },
     { label: "Terapias", href: "/terapias" },
     { label: "Sobre", href: "/sobre" },
+    { label: "Depoimentos", href: "/depoimentos" },
     { label: "Contato", href: "/contato" },
   ];
 
