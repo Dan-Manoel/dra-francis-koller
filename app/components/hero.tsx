@@ -57,7 +57,7 @@ export function Hero() {
             transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
             className="text-[12vw] md:text-[11vw] leading-[1.1] font-serif text-[#1a2e22]"
           >
-            Terapia
+            Saúde
           </motion.h1>
         </div>
 
