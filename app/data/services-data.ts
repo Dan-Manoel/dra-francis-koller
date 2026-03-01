@@ -3,103 +3,137 @@
 export const SERVICES_DATA = [
   {
     id: 1,
-    title: "Acupuntura Estética Corporal",
-    description: "Acupuntura Estética Corporal: equilíbrio, beleza e bem-estar",
-    details: `A acupuntura estética corporal é uma técnica terapêutica que une os princípios milenares da Medicina Tradicional Chinesa ao cuidado com a beleza e a autoestima. Por meio da aplicação de agulhas finas em pontos específicos do corpo, essa abordagem estimula o fluxo de energia vital (Qi), promovendo harmonia interna e resultados visíveis no contorno e na vitalidade da pele.
+    title: "Fisioterapia Regenerativa",
+    description: "Recupere seus movimentos. Reduza a dor. Restaure sua qualidade de vida.",
+    details: `A Fisioterapia Regenerativa é um programa completo de reabilitação que integra tecnologia, movimento terapêutico e suporte metabólico para promover uma recuperação plena e eficiente.
 
-Benefícios da Acupuntura Estética Corporal:
-
-• Tonifica e firma a pele naturalmente
-• Reduz celulite, flacidez e gordura localizada
-• Melhora a circulação sanguínea e linfática
-• Estimula o metabolismo e a eliminação de toxinas
-• Equilibra os sistemas hormonais e emocionais
-• Favorece a conexão entre saúde, beleza e energia vital
-
-🌿 Essa técnica respeita o ritmo do seu corpo e atua de forma profunda, promovendo uma beleza natural, consciente e duradoura.`,
-    image: "/services/acupuntura.jpg",
-  },
-  {
-    id: 2,
-    title: "Cone Chines ou Hindu",
-    description: "Cone Chinês: purificação energética e alívio natural",
-    details: `O Cone Chinês — também conhecido como Cone Hindu — é uma terapia ancestral que promove a limpeza energética e física dos canais auditivos, proporcionando alívio e bem-estar. Feito de tecido de algodão e cera, o cone é aceso na extremidade oposta ao ouvido, gerando um calor suave e efeito de vácuo que auxilia na desobstrução e harmonização dos sentidos.
-
-🌿 Benefícios do Cone Chinês:
-
-• Limpeza dos ouvidos, alívio de zumbidos e excesso de cerúmen
-• Melhora de dores de cabeça, sinusite e rinite
-• Alívio de tensão, ansiedade e insônia
-• Equilíbrio energético dos chakras superiores (garganta, terceiro olho e coroa)
-• Auxilia na liberação emocional e no relaxamento profundo
-
-✨ Essa técnica atua nos níveis físico, emocional e energético, trazendo uma sensação de leveza, clareza mental e reconexão com a própria essência.
-
-🌸 Toque Especial de Aromaterapia:
-Para potencializar ainda mais a sua experiência de bem-estar, as sessões de Cone Chinês são complementadas de forma integrativa com a Aromaterapia. Ao final do procedimento ou durante o relaxamento, óleos essenciais específicos e minuciosamente escolhidos conforme a sua necessidade do momento (seja para acalmar, estimular ou focar) são introduzidos, aprofundando o estado de tranquilidade e os benefícios da sessão.`,
-    image: "/services/cone.jpg",
-  },
-  {
-    id: 3,
-    title: "Cromopuntura",
-    description: "🌈 Cromopuntura: equilíbrio vibracional através das cores",
-    details: `A Cromopuntura é uma terapia vibracional que une os princípios da acupuntura com a força sutil das cores. Utilizando feixes de luz colorida aplicados em pontos específicos do corpo, essa técnica estimula os meridianos de energia sem o uso de agulhas, promovendo equilíbrio físico, emocional e energético.
-
-✨ Como funciona?
-Ao aplicar a luz colorida nos pontos energéticos da pele, o corpo responde ao comprimento de onda da cor, ativando processos de cura, desbloqueio e harmonização interna. Cada cor tem uma frequência única e atua de forma específica nos campos sutis do organismo.
-
-🌟 Benefícios da Cromopuntura:
-• Alívio de dores físicas e tensões
-• Equilíbrio emocional e clareza mental
-• Melhora da qualidade do sono
-• Redução da ansiedade e do estresse
-• Reequilíbrio dos chakras e campo energético
-• Estímulo à autocura e à vitalidade
-
-🎨 As cores curam. A luz transforma.
-Deixe-se envolver pela medicina das cores e descubra um caminho leve e profundo de reconexão com sua essência.
-
-**Benefícios da Cromopuntura:**
-1. **Equilíbrio Energético:** Ajuda a restaurar o equilíbrio energético no corpo, promovendo a harmonia física e emocional.
-2. **Alívio do Estresse:** Pode reduzir o estresse e a ansiedade, promovendo um estado de relaxamento.
-3. **Melhora do Humor:** A exposição a certas cores pode melhorar o humor e a disposição geral.
-4. **Estimulação do Sistema Imunológico:** Estimula o sistema imunológico e pode ajudar na prevenção de doenças.
-5. **Tratamento de Condições Específicas:** Pode ser usada como complemento no tratamento de condições como dor crônica, insônia, e problemas digestivos.`,
-    image: "/services/cromopuntura.jpg",
-  },
-  {
-    id: 4,
-    title: "Terapia de Florais de Bach",
-    description: "🌼 Terapia com Florais de Bach (Presencial e/ou On-line)",
-    details: `Equilíbrio emocional por meio da sabedoria da natureza
-
-A Terapia com Florais de Bach é um método natural de harmonização emocional desenvolvido pelo Dr. Edward Bach. Utiliza essências florais extraídas de flores silvestres para tratar emoções em desequilíbrio, como medo, ansiedade, tristeza, insegurança ou estresse.
-
-📍 **Disponível para atendimento presencial e/ou on-line.**
-
-🌿 Como funciona?
-
-Cada floral atua suavemente sobre uma emoção específica, ajudando a restaurar o equilíbrio interno, clarear pensamentos e reconectar a pessoa com sua essência.
-
-🌸 Benefícios dos Florais de Bach:
-	•	Alívio da ansiedade, estresse e insônia
-	•	Equilíbrio de emoções como raiva, medo, culpa e tristeza
-	•	Apoio em momentos de transição ou tomada de decisões
-	•	Aumento da autoestima e da clareza emocional
-	•	Complemento ideal a outras terapias
-
-✨ Indicado para:
-
-Crianças, adultos, idosos, gestantes e até animais.
-É um tratamento seguro, sem contraindicações e livre de efeitos colaterais.
+O tratamento associa recursos modernos da fisioterapia — como laser terapêutico, eletroterapia e eletroacupuntura — com Pilates Clínico, Ozonioterapia e estratégias de suplementação avançada, oferecendo um cuidado global e individualizado.
 
 ⸻
 
-“Quando a alma está em harmonia, o corpo também se equilibra.” — Dr. Bach`,
-    image: "/services/florais.jpg",
+💥 Para quem é indicado?
+
+Indicado especialmente para pacientes que sofrem com:
+	•	Dores crônicas ou recorrentes (coluna, joelho, ombro, quadril)
+	•	Hérnias de disco e lombalgias
+	•	Tendinites e bursites
+	•	Lesões musculares e articulares
+	•	Pós-operatórios ortopédicos
+	•	Limitações de movimento
+	•	Fraqueza muscular e instabilidade
+	•	Inflamações persistentes
+
+Se a dor está limitando sua rotina, seu trabalho ou sua qualidade de vida, esse tratamento é para você.
+
+⸻
+
+⚡ Como atuamos na sua recuperação
+
+✔️ Laser terapêutico – ação anti-inflamatória e regeneradora tecidual
+✔️ Eletroterapia – analgesia e estímulo muscular
+✔️ Eletroacupuntura – equilíbrio neuromuscular e controle da dor
+✔️ Pilates Clínico – fortalecimento profundo e reeducação do movimento
+✔️ Ozonioterapia – suporte anti-inflamatório e melhora da oxigenação
+✔️ Suplementação avançada – apoio metabólico para regeneração celular
+
+O objetivo não é apenas aliviar a dor, mas tratar a causa, restaurar função e prevenir recaídas.
+
+⸻
+
+🌟 Benefícios do tratamento
+	•	Redução significativa da dor
+	•	Recuperação mais rápida
+	•	Melhora da mobilidade e flexibilidade
+	•	Fortalecimento muscular seguro
+	•	Prevenção de novas lesões
+	•	Mais autonomia e qualidade de vida
+
+⸻
+
+🌸 Um plano completo para sua reabilitação
+
+Cada paciente recebe uma avaliação individualizada e um plano terapêutico estratégico, com acompanhamento próximo e suporte integral durante todo o processo.
+
+Não aceite viver com dor ou limitações.`,
+    image: "/services/fisioterapia_regenerativa.jpg",
   },
   {
-    id: 5,
+    id: 2,
+    title: "Ozonioterapia Clínica",
+    description: "Você sente dores constantes? Inflamações recorrentes? Baixa imunidade?",
+    details: `Com Dra. Francis Koller
+
+Você sente dores constantes?
+Inflamações recorrentes?
+Baixa imunidade?
+Cansaço que não melhora?
+
+A Ozonioterapia Clínica é uma abordagem terapêutica que atua diretamente na raiz dos processos inflamatórios e infecciosos do organismo.
+
+O ozônio medicinal é aplicado de forma segura e controlada, promovendo:
+
+✨ Ação anti-inflamatória potente
+✨ Melhora da oxigenação celular
+✨ Estímulo da imunidade
+✨ Aceleração da cicatrização
+✨ Auxílio em dores articulares e musculares
+✨ Apoio em doenças crônicas
+
+Não é apenas aliviar sintomas.
+É estimular o próprio corpo a se regenerar.
+
+A Ozonioterapia atua no equilíbrio sistêmico, favorecendo respostas mais eficazes do organismo e potencializando tratamentos integrativos.
+
+Cada protocolo é individualizado, respeitando sua história clínica, suas necessidades e seu momento de saúde.
+
+Se você busca:
+
+✔ Tratamento integrativo
+✔ Redução de dores
+✔ Melhora da imunidade
+✔ Recuperação mais rápida
+✔ Cuidado com base científica
+
+A Ozonioterapia Clínica pode ser um grande diferencial no seu tratamento.`,
+    image: "/services/ozonioterapia-clinica.jpg",
+  },
+  {
+    id: 3,
+    title: "Ozonioterapia Estética Corporal",
+    description: "Você cuida do corpo… mas ele está realmente saudável por dentro?",
+    details: `A Ozonioterapia Estética Corporal não é apenas um tratamento estético.
+Ela é uma abordagem terapêutica que atua na causa da inflamação, da retenção, da gordura localizada e da flacidez.
+
+O ozônio medicinal:
+
+✨ Melhora a circulação
+✨ Estimula colágeno
+✨ Reduz inflamação
+✨ Auxilia na celulite
+✨ Potencializa a queima de gordura
+✨ Melhora o aspecto da pele
+
+Tudo isso de forma segura, com avaliação individualizada e protocolo personalizado.
+
+Não é sobre milagres.
+É sobre ciência aplicada ao seu corpo.
+
+Aqui, cada atendimento é pensado de forma integrativa — associando, quando necessário, suplementação estratégica, ajuste metabólico e orientação individual.
+
+🌿 Seu corpo responde quando é tratado com inteligência.
+
+Se você quer:
+✔ Reduzir medidas
+✔ Melhorar a firmeza da pele
+✔ Diminuir celulite
+✔ Desinflamar o organismo
+✔ Cuidar do corpo com saúde e segurança
+
+Agende sua avaliação.`,
+    image: "/services/ozonio-corporal.jpg",
+  },
+  {
+    id: 4,
     title: "Ozonioterapia Estética Facial",
     description: "✨ Ozonioterapia Estética Facial",
     details: `Regenere sua beleza com saúde e ciência natural 🌿
@@ -172,7 +206,197 @@ Contraindicações: Não é recomendada para pessoas com certas condições méd
     image: "/services/ozonio-facial.jpg",
   },
   {
+    id: 5,
+    title: "Acupuntura Sistêmica",
+    description: "Equilíbrio profundo para corpo, mente e emoções",
+    details: `A Acupuntura Sistêmica é uma terapia milenar da Medicina Tradicional Chinesa que atua na raiz dos desequilíbrios do organismo.
+Por meio da aplicação de agulhas em pontos estratégicos do corpo, estimula-se o fluxo energético (Qi), promovendo autorregulação, analgesia e recuperação funcional.
+
+É um tratamento seguro, natural e altamente eficaz para quem busca alívio da dor e equilíbrio integral.
+
+⸻
+
+💥 Indicações
+
+Indicada especialmente para:
+	•	Dores musculares e articulares
+	•	Lombalgia, cervicalgia e enxaqueca
+	•	Ansiedade, estresse e insônia
+	•	Alterações hormonais
+	•	Problemas digestivos
+	•	Inflamações recorrentes
+	•	Cansaço físico e mental
+
+⸻
+
+✨ Benefícios
+
+✔️ Redução da dor e da inflamação
+✔️ Relaxamento profundo
+✔️ Melhora do sono
+✔️ Equilíbrio emocional
+✔️ Fortalecimento do sistema imunológico
+✔️ Harmonização energética global
+
+A Acupuntura Sistêmica não trata apenas o sintoma — ela busca a causa do desequilíbrio, promovendo saúde de forma completa.
+
+⸻
+
+🌸 Cuide da sua energia. Cuide de você.
+
+Seu corpo fala. A acupuntura ajuda você a escutar e restaurar o equilíbrio. 🌿`,
+    image: "/services/acupuntura.jpg",
+  },
+  {
     id: 6,
+    title: "Acupuntura Estética Facial",
+    description: "Beleza natural com equilíbrio interno",
+    details: `A Acupuntura Estética Facial é uma técnica da Medicina Tradicional Chinesa que promove rejuvenescimento de forma natural, estimulando a produção de colágeno, melhorando a circulação e revitalizando a pele sem procedimentos invasivos.
+
+Mais do que estética, ela trata o rosto como reflexo do equilíbrio interno, atuando também nas causas emocionais e energéticas que aceleram o envelhecimento.
+
+⸻
+
+✨ Indicações
+	•	Linhas de expressão e rugas
+	•	Flacidez facial
+	•	Olheiras
+	•	Inchaço e retenção de líquidos
+	•	Acne e marcas
+	•	Pele opaca e sem viço
+
+⸻
+
+🌸 Benefícios
+
+✔️ Estímulo natural de colágeno
+✔️ Melhora da firmeza e elasticidade
+✔️ Pele mais iluminada e saudável
+✔️ Redução de rugas finas
+✔️ Relaxamento da musculatura facial
+✔️ Rejuvenescimento global sem toxinas
+
+O resultado é um rosto mais harmônico, revitalizado e com aparência descansada — respeitando sua beleza natural.
+
+⸻
+
+💆♀️ Rejuvenesça de dentro para fora
+
+Sua pele reflete seu equilíbrio. Invista em um cuidado natural e inteligente. 🌿`,
+    image: "/services/acupuntura-estetica.jpg",
+  },
+  {
+    id: 7,
+    title: "Acupuntura Estética Corporal",
+    description: "Você sabia que é possível tratar celulite, gordura localizada e flacidez sem agredir o seu corpo?",
+    details: `A Acupuntura Estética Corporal é uma técnica natural que estimula pontos estratégicos para ativar a circulação, melhorar o metabolismo e equilibrar o organismo.
+
+Não é apenas estética.
+É equilíbrio energético + resposta fisiológica real.
+
+✨ Estimula colágeno
+✨ Melhora a firmeza da pele
+✨ Reduz retenção de líquidos
+✨ Auxilia na gordura localizada
+✨ Ativa o metabolismo
+✨ Diminui inflamação corporal
+
+Quando o corpo entra em equilíbrio, a estética acontece como consequência.
+
+A técnica promove melhora visível no contorno corporal, com protocolos personalizados, respeitando sua individualidade.
+
+Aqui não tratamos apenas a aparência.
+Tratamos o corpo como um todo.
+
+Se você busca um método:
+
+✔ Natural
+✔ Seguro
+✔ Integrativo
+✔ Com resultados progressivos e duradouros
+
+Agende sua avaliação personalizada.`,
+    image: "/services/acupuntura.jpg",
+  },
+  {
+    id: 8,
+    title: "Suplementação Avançada Personalizada",
+    description: "Nutrição estratégica para regenerar, fortalecer e acelerar resultados",
+    details: `A Suplementação Avançada Personalizada é um plano individualizado de suporte nutricional desenvolvido de acordo com suas necessidades clínicas, metabólicas e inflamatórias.
+
+Não se trata apenas de “tomar vitaminas”, mas de utilizar ativos específicos e doses adequadas para favorecer a regeneração celular, modular inflamações, melhorar a energia e potencializar os resultados dos tratamentos terapêuticos.
+
+⸻
+
+💥 Indicações
+
+Indicada especialmente para quem apresenta:
+	•	Dores musculares e articulares recorrentes
+	•	Inflamações crônicas
+	•	Fadiga e baixa energia
+	•	Recuperação lenta pós-lesão ou pós-cirurgia
+	•	Desequilíbrios hormonais
+	•	Queda de imunidade
+	•	Estresse físico e mental
+
+⸻
+
+✨ Benefícios
+
+✔️ Redução de processos inflamatórios
+✔️ Aceleração da regeneração tecidual
+✔️ Melhora da disposição e vitalidade
+✔️ Suporte imunológico
+✔️ Otimização da recuperação física
+✔️ Potencialização dos tratamentos integrativos
+
+Cada protocolo é cuidadosamente planejado após avaliação individual, respeitando seu organismo e seus objetivos terapêuticos.
+
+⸻
+
+🌸 Seu corpo precisa dos nutrientes certos para se regenerar
+
+A estratégia correta de suplementação pode transformar sua recuperação e sua qualidade de vida. 🌿`,
+    image: "/services/suplementacao.jpg",
+  },
+  {
+    id: 9,
+    title: "Drenagem Linfática",
+    description: "Desperte o fluxo do seu corpo com leveza e detox profundo.",
+    details: `Você sabia que o seu corpo também precisa de um momento de alívio, leveza e detox profundo?
+
+A Drenagem Linfática é muito mais do que um procedimento estético — é uma terapia integrativa que ativa o seu sistema de limpeza natural.
+
+✨ **O Diferencial Fisioterapêutico Avançado**
+
+Nossa técnica possui um diferencial por ser fisioterapêutica e avançada. Utilizamos a tecnologia do **Laser vermelho e infravermelho**, atuando diretamente para:
+
+✔️ Reduzir a inflamação
+✔️ Promover a regeneração dos vasos linfáticos
+✔️ Melhorar a motilidade linfática
+✔️ Prevenir a fibrose tecidual
+✔️ Estimular o sistema imunológico
+✔️ Potencializar os efeitos da drenagem linfática
+
+É altamente eficaz e muito utilizada no tratamento de linfedemas.
+
+⸻
+
+🌸 **Benefícios percebidos**
+
+✨ Redução de inchaços
+✨ Eliminação de toxinas
+✨ Melhora da circulação
+✨ Sensação imediata de bem-estar e leveza
+
+Ideal para quem busca cuidar do corpo de forma natural, respeitosa e profundamente eficaz.
+
+Seu corpo sente. Sua alma agradece.
+Agende seu momento de cuidado hoje mesmo.`,
+    image: "/services/drenagem.jpg",
+  },
+  {
+    id: 10,
     title: "Ventosaterapia com Ozônio",
     description: "Equilíbrio, Desintoxicação e Alívio Profundo das Dores",
     details: `A Ventosaterapia com Ozônio é uma técnica terapêutica integrativa que une dois recursos poderosos: a tradicional ventosaterapia — utilizada há milhares de anos na Medicina Tradicional Chinesa — e a aplicação tópica do ozônio medicinal, reconhecido por suas propriedades anti-inflamatórias, analgésicas e revitalizantes.
@@ -237,25 +461,46 @@ Se você busca uma abordagem natural, eficaz e integrativa para cuidar da sua sa
     image: "/services/ventosa.jpg",
   },
   {
-    id: 7,
-    title: "Reiki",
-    description: "🌟 Reiki: energia que cura com amor",
-    details: `O Reiki é uma terapia integrativa japonesa que utiliza a imposição das mãos para canalizar a energia vital universal (Rei = universal | Ki = energia vital).
-Com toques sutis ou à distância, o Reiki promove equilíbrio físico, emocional, mental e espiritual.
+    id: 11,
+    title: "Bambuterapia",
+    description: "Você sente o corpo pesado, inchado, travado?",
+    details: `Com Francis Koller – Terapeuta Bioxamânica
 
-Benefícios do Reiki:
-	•	Reduz o estresse e a ansiedade
-	•	Melhora a qualidade do sono
-	•	Alivia dores físicas e tensões musculares
-	•	Equilibra os chakras e emoções
-	•	Aumenta a energia e vitalidade
-	•	Auxilia no processo de autocura
+Você sente o corpo pesado, inchado, travado?
 
-✨ O Reiki não substitui tratamentos médicos, mas é um poderoso complemento que promove bem-estar profundo e reconexão com a sua essência.`,
-    image: "/services/reiki.jpg",
+A Bambuterapia é uma técnica terapêutica e estética que utiliza hastes de bambu para estimular profundamente a circulação, modelar o corpo e promover relaxamento intenso.
+
+O toque firme e ritmado do bambu ativa:
+
+✨ Drenagem linfática natural
+✨ Redução de retenção de líquidos
+✨ Estímulo da circulação sanguínea
+✨ Auxílio na celulite
+✨ Relaxamento muscular profundo
+✨ Sensação imediata de leveza
+
+É como se o corpo despertasse.
+
+Além dos benefícios estéticos, a Bambuterapia promove equilíbrio energético, libera tensões acumuladas e ajuda a reduzir o estresse.
+
+Não é apenas uma massagem.
+É uma experiência corporal transformadora.
+
+Se você deseja:
+
+✔ Modelar o corpo
+✔ Reduzir medidas
+✔ Diminuir inchaço
+✔ Relaxar profundamente
+✔ Cuidar da autoestima
+
+A Bambuterapia pode ser o cuidado que seu corpo está pedindo.
+
+Agende sua sessão.`,
+    image: "/services/bambuterapia.jpg",
   },
   {
-    id: 8,
+    id: 12,
     title: "Massagem com Pedras Quentes",
     description: "🔥 Relaxe profundamente com a Massagem com Pedras Quentes 🔥",
     details: `Imagine o calor suave das pedras aquecidas deslizando sobre sua pele, dissolvendo tensões, equilibrando emoções e despertando o seu bem-estar interior.
@@ -274,143 +519,104 @@ Reserve um tempo só seu. Seu corpo merece essa pausa sagrada.`,
     image: "/services/massagem-pedras.jpg",
   },
   {
-    id: 9,
-    title: "Fisioterapia Regenerativa",
-    description: "Recupere seus movimentos. Reduza a dor. Restaure sua qualidade de vida.",
-    details: `A Fisioterapia Regenerativa é um programa completo de reabilitação que integra tecnologia, movimento terapêutico e suporte metabólico para promover uma recuperação plena e eficiente.
+    id: 13,
+    title: "Cromopuntura",
+    description: "🌈 Cromopuntura: equilíbrio vibracional através das cores",
+    details: `A Cromopuntura é uma terapia vibracional que une os princípios da acupuntura com a força sutil das cores. Utilizando feixes de luz colorida aplicados em pontos específicos do corpo, essa técnica estimula os meridianos de energia sem o uso de agulhas, promovendo equilíbrio físico, emocional e energético.
 
-O tratamento associa recursos modernos da fisioterapia — como laser terapêutico, eletroterapia e eletroacupuntura — com Pilates Clínico, Ozonioterapia e estratégias de suplementação avançada, oferecendo um cuidado global e individualizado.
+✨ Como funciona?
+Ao aplicar a luz colorida nos pontos energéticos da pele, o corpo responde ao comprimento de onda da cor, ativando processos de cura, desbloqueio e harmonização interna. Cada cor tem uma frequência única e atua de forma específica nos campos sutis do organismo.
 
-⸻
+🌟 Benefícios da Cromopuntura:
+• Alívio de dores físicas e tensões
+• Equilíbrio emocional e clareza mental
+• Melhora da qualidade do sono
+• Redução da ansiedade e do estresse
+• Reequilíbrio dos chakras e campo energético
+• Estímulo à autocura e à vitalidade
 
-💥 Para quem é indicado?
+🎨 As cores curam. A luz transforma.
+Deixe-se envolver pela medicina das cores e descubra um caminho leve e profundo de reconexão com sua essência.
 
-Indicado especialmente para pacientes que sofrem com:
-	•	Dores crônicas ou recorrentes (coluna, joelho, ombro, quadril)
-	•	Hérnias de disco e lombalgias
-	•	Tendinites e bursites
-	•	Lesões musculares e articulares
-	•	Pós-operatórios ortopédicos
-	•	Limitações de movimento
-	•	Fraqueza muscular e instabilidade
-	•	Inflamações persistentes
-
-Se a dor está limitando sua rotina, seu trabalho ou sua qualidade de vida, esse tratamento é para você.
-
-⸻
-
-⚡ Como atuamos na sua recuperação
-
-✔️ Laser terapêutico – ação anti-inflamatória e regeneradora tecidual
-✔️ Eletroterapia – analgesia e estímulo muscular
-✔️ Eletroacupuntura – equilíbrio neuromuscular e controle da dor
-✔️ Pilates Clínico – fortalecimento profundo e reeducação do movimento
-✔️ Ozonioterapia – suporte anti-inflamatório e melhora da oxigenação
-✔️ Suplementação avançada – apoio metabólico para regeneração celular
-
-O objetivo não é apenas aliviar a dor, mas tratar a causa, restaurar função e prevenir recaídas.
-
-⸻
-
-🌟 Benefícios do tratamento
-	•	Redução significativa da dor
-	•	Recuperação mais rápida
-	•	Melhora da mobilidade e flexibilidade
-	•	Fortalecimento muscular seguro
-	•	Prevenção de novas lesões
-	•	Mais autonomia e qualidade de vida
-
-⸻
-
-🌸 Um plano completo para sua reabilitação
-
-Cada paciente recebe uma avaliação individualizada e um plano terapêutico estratégico, com acompanhamento próximo e suporte integral durante todo o processo.
-
-Não aceite viver com dor ou limitações.`,
-    image: "/services/fisioterapia_regenerativa.jpg",
+**Benefícios da Cromopuntura:**
+1. **Equilíbrio Energético:** Ajuda a restaurar o equilíbrio energético no corpo, promovendo a harmonia física e emocional.
+2. **Alívio do Estresse:** Pode reduzir o estresse e a ansiedade, promovendo um estado de relaxamento.
+3. **Melhora do Humor:** A exposição a certas cores pode melhorar o humor e a disposição geral.
+4. **Estimulação do Sistema Imunológico:** Estimula o sistema imunológico e pode ajudar na prevenção de doenças.
+5. **Tratamento de Condições Específicas:** Pode ser usada como complemento no tratamento de condições como dor crônica, insônia, e problemas digestivos.`,
+    image: "/services/cromopuntura.jpg",
   },
   {
-    id: 10,
-    title: "Acupuntura Sistêmica",
-    description: "Equilíbrio profundo para corpo, mente e emoções",
-    details: `A Acupuntura Sistêmica é uma terapia milenar da Medicina Tradicional Chinesa que atua na raiz dos desequilíbrios do organismo.
-Por meio da aplicação de agulhas em pontos estratégicos do corpo, estimula-se o fluxo energético (Qi), promovendo autorregulação, analgesia e recuperação funcional.
+    id: 14,
+    title: "Cone Chinês ou Hindu",
+    description: "Cone Chinês: purificação energética e alívio natural",
+    details: `O Cone Chinês — também conhecido como Cone Hindu — é uma terapia ancestral que promove a limpeza energética e física dos canais auditivos, proporcionando alívio e bem-estar. Feito de tecido de algodão e cera, o cone é aceso na extremidade oposta ao ouvido, gerando um calor suave e efeito de vácuo que auxilia na desobstrução e harmonização dos sentidos.
 
-É um tratamento seguro, natural e altamente eficaz para quem busca alívio da dor e equilíbrio integral.
+🌿 Benefícios do Cone Chinês:
 
-⸻
+• Limpeza dos ouvidos, alívio de zumbidos e excesso de cerúmen
+• Melhora de dores de cabeça, sinusite e rinite
+• Alívio de tensão, ansiedade e insônia
+• Equilíbrio energético dos chakras superiores (garganta, terceiro olho e coroa)
+• Auxilia na liberação emocional e no relaxamento profundo
 
-💥 Indicações
+✨ Essa técnica atua nos níveis físico, emocional e energético, trazendo uma sensação de leveza, clareza mental e reconexão com a própria essência.
 
-Indicada especialmente para:
-	•	Dores musculares e articulares
-	•	Lombalgia, cervicalgia e enxaqueca
-	•	Ansiedade, estresse e insônia
-	•	Alterações hormonais
-	•	Problemas digestivos
-	•	Inflamações recorrentes
-	•	Cansaço físico e mental
-
-⸻
-
-✨ Benefícios
-
-✔️ Redução da dor e da inflamação
-✔️ Relaxamento profundo
-✔️ Melhora do sono
-✔️ Equilíbrio emocional
-✔️ Fortalecimento do sistema imunológico
-✔️ Harmonização energética global
-
-A Acupuntura Sistêmica não trata apenas o sintoma — ela busca a causa do desequilíbrio, promovendo saúde de forma completa.
-
-⸻
-
-🌸 Cuide da sua energia. Cuide de você.
-
-Seu corpo fala. A acupuntura ajuda você a escutar e restaurar o equilíbrio. 🌿`,
-    image: "/services/acupuntura.jpg",
+🌸 Toque Especial de Aromaterapia:
+Para potencializar ainda mais a sua experiência de bem-estar, as sessões de Cone Chinês são complementadas de forma integrativa com a Aromaterapia. Ao final do procedimento ou durante o relaxamento, óleos essenciais específicos e minuciosamente escolhidos conforme a sua necessidade do momento (seja para acalmar, estimular ou focar) são introduzidos, aprofundando o estado de tranquilidade e os benefícios da sessão.`,
+    image: "/services/cone.jpg",
   },
   {
-    id: 11,
-    title: "Acupuntura Estética Facial",
-    description: "Beleza natural com equilíbrio interno",
-    details: `A Acupuntura Estética Facial é uma técnica da Medicina Tradicional Chinesa que promove rejuvenescimento de forma natural, estimulando a produção de colágeno, melhorando a circulação e revitalizando a pele sem procedimentos invasivos.
+    id: 15,
+    title: "Terapia de Florais de Bach",
+    description: "🌼 Terapia com Florais de Bach (Presencial e/ou On-line)",
+    details: `Equilíbrio emocional por meio da sabedoria da natureza
 
-Mais do que estética, ela trata o rosto como reflexo do equilíbrio interno, atuando também nas causas emocionais e energéticas que aceleram o envelhecimento.
+A Terapia com Florais de Bach é um método natural de harmonização emocional desenvolvido pelo Dr. Edward Bach. Utiliza essências florais extraídas de flores silvestres para tratar emoções em desequilíbrio, como medo, ansiedade, tristeza, insegurança ou estresse.
 
-⸻
+📍 **Disponível para atendimento presencial e/ou on-line.**
 
-✨ Indicações
-	•	Linhas de expressão e rugas
-	•	Flacidez facial
-	•	Olheiras
-	•	Inchaço e retenção de líquidos
-	•	Acne e marcas
-	•	Pele opaca e sem viço
+🌿 Como funciona?
 
-⸻
+Cada floral atua suavemente sobre uma emoção específica, ajudando a restaurar o equilíbrio interno, clarear pensamentos e reconectar a pessoa com sua essência.
 
-🌸 Benefícios
+🌸 Benefícios dos Florais de Bach:
+	•	Alívio da ansiedade, estresse e insônia
+	•	Equilíbrio de emoções como raiva, medo, culpa e tristeza
+	•	Apoio em momentos de transição ou tomada de decisões
+	•	Aumento da autoestima e da clareza emocional
+	•	Complemento ideal a outras terapias
 
-✔️ Estímulo natural de colágeno
-✔️ Melhora da firmeza e elasticidade
-✔️ Pele mais iluminada e saudável
-✔️ Redução de rugas finas
-✔️ Relaxamento da musculatura facial
-✔️ Rejuvenescimento global sem toxinas
+✨ Indicado para:
 
-O resultado é um rosto mais harmônico, revitalizado e com aparência descansada — respeitando sua beleza natural.
+Crianças, adultos, idosos, gestantes e até animais.
+É um tratamento seguro, sem contraindicações e livre de efeitos colaterais.
 
 ⸻
 
-💆♀️ Rejuvenesça de dentro para fora
-
-Sua pele reflete seu equilíbrio. Invista em um cuidado natural e inteligente. 🌿`,
-    image: "/services/acupuntura-estetica.jpg",
+“Quando a alma está em harmonia, o corpo também se equilibra.” — Dr. Bach`,
+    image: "/services/florais.jpg",
   },
   {
-    id: 12,
+    id: 16,
+    title: "Reiki",
+    description: "🌟 Reiki: energia que cura com amor",
+    details: `O Reiki é uma terapia integrativa japonesa que utiliza a imposição das mãos para canalizar a energia vital universal (Rei = universal | Ki = energia vital).
+Com toques sutis ou à distância, o Reiki promove equilíbrio físico, emocional, mental e espiritual.
+
+Benefícios do Reiki:
+	•	Reduz o estresse e a ansiedade
+	•	Melhora a qualidade do sono
+	•	Alivia dores físicas e tensões musculares
+	•	Equilibra os chakras e emoções
+	•	Aumenta a energia e vitalidade
+	•	Auxilia no processo de autocura
+
+✨ O Reiki não substitui tratamentos médicos, mas é um poderoso complemento que promove bem-estar profundo e reconexão com a sua essência.`,
+    image: "/services/reiki.jpg",
+  },
+  {
+    id: 17,
     title: "Moxaterapia",
     description: "Calor terapêutico que restaura, fortalece e equilibra",
     details: `A Moxaterapia é uma técnica milenar da Medicina Tradicional Chinesa que utiliza o calor da erva Artemísia para estimular pontos energéticos do corpo.
@@ -451,48 +657,7 @@ O calor certo, no ponto certo, pode transformas sua saúde. 🔥`,
     image: "/services/moxaterapia.jpg",
   },
   {
-    id: 13,
-    title: "Suplementação Avançada Personalizada",
-    description: "Nutrição estratégica para regenerar, fortalecer e acelerar resultados",
-    details: `A Suplementação Avançada Personalizada é um plano individualizado de suporte nutricional desenvolvido de acordo com suas necessidades clínicas, metabólicas e inflamatórias.
-
-Não se trata apenas de “tomar vitaminas”, mas de utilizar ativos específicos e doses adequadas para favorecer a regeneração celular, modular inflamações, melhorar a energia e potencializar os resultados dos tratamentos terapêuticos.
-
-⸻
-
-💥 Indicações
-
-Indicada especialmente para quem apresenta:
-	•	Dores musculares e articulares recorrentes
-	•	Inflamações crônicas
-	•	Fadiga e baixa energia
-	•	Recuperação lenta pós-lesão ou pós-cirurgia
-	•	Desequilíbrios hormonais
-	•	Queda de imunidade
-	•	Estresse físico e mental
-
-⸻
-
-✨ Benefícios
-
-✔️ Redução de processos inflamatórios
-✔️ Aceleração da regeneração tecidual
-✔️ Melhora da disposição e vitalidade
-✔️ Suporte imunológico
-✔️ Otimização da recuperação física
-✔️ Potencialização dos tratamentos integrativos
-
-Cada protocolo é cuidadosamente planejado após avaliação individual, respeitando seu organismo e seus objetivos terapêuticos.
-
-⸻
-
-🌸 Seu corpo precisa dos nutrientes certos para se regenerar
-
-A estratégia correta de suplementação pode transformar sua recuperação e sua qualidade de vida. 🌿`,
-    image: "/services/suplementacao.jpg",
-  },
-  {
-    id: 14,
+    id: 18,
     title: "Terapia CELLDRUM",
     description: "Vibração, Luz e Reequilíbrio Neuroemocional",
     details: `A Terapia CELLDRUM é um método integrativo que combina vibração rítmica profunda e estimulação luminosa terapêutica, promovendo reorganização do sistema nervoso, equilíbrio emocional e revitalização celular.
@@ -545,41 +710,5 @@ Também é indicada para quem busca:
 
 Muitos pacientes relatam uma experiência profunda de regulação interna, como se o corpo “reencontrasse seu ritmo natural”.`,
     image: "/services/celldrum.jpg",
-  },
-  {
-    id: 15,
-    title: "Drenagem Linfática",
-    description: "Desperte o fluxo do seu corpo com leveza e detox profundo.",
-    details: `Você sabia que o seu corpo também precisa de um momento de alívio, leveza e detox profundo?
-
-A Drenagem Linfática é muito mais do que um procedimento estético — é uma terapia integrativa que ativa o seu sistema de limpeza natural.
-
-✨ **O Diferencial Fisioterapêutico Avançado**
-
-Nossa técnica possui um diferencial por ser fisioterapêutica e avançada. Utilizamos a tecnologia do **Laser vermelho e infravermelho**, atuando diretamente para:
-
-✔️ Reduzir a inflamação
-✔️ Promover a regeneração dos vasos linfáticos
-✔️ Melhorar a motilidade linfática
-✔️ Prevenir a fibrose tecidual
-✔️ Estimular o sistema imunológico
-✔️ Potencializar os efeitos da drenagem linfática
-
-É altamente eficaz e muito utilizada no tratamento de linfedemas.
-
-⸻
-
-🌸 **Benefícios percebidos**
-
-✨ Redução de inchaços
-✨ Eliminação de toxinas
-✨ Melhora da circulação
-✨ Sensação imediata de bem-estar e leveza
-
-Ideal para quem busca cuidar do corpo de forma natural, respeitosa e profundamente eficaz.
-
-Seu corpo sente. Sua alma agradece.
-Agende seu momento de cuidado hoje mesmo.`,
-    image: "/services/drenagem.jpg",
   }
 ];

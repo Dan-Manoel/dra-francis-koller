@@ -22,7 +22,7 @@ export function Hero() {
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
   return (
-    <main ref={containerRef} className="relative z-10 pt-32 px-8 md:px-20 max-w-7xl mx-auto h-screen flex flex-col justify-center">
+    <main ref={containerRef} className="relative z-10 pt-32 px-8 md:px-20 max-w-7xl mx-auto h-[100lvh] flex flex-col justify-center">
 
       {/* --- ABSTRACT HERO IMAGE --- */}
       <motion.div
