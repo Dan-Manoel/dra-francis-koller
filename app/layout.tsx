@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { SmoothScroll } from "./components/smooth-scroll";
 import { WhatsAppFloat } from "./components/whatsapp-float";
@@ -76,6 +77,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased bg-background text-foreground selection:bg-leaf/30`}
       >
         <div className="bg-noise" />
+
+        {/* Universal Static Background Texture */}
+        <div className="fixed top-0 left-0 w-full h-[100lvh] z-0 pointer-events-none md:opacity-40">
+          <Image
+            src="/palm-fan.png"
+            alt="Background Texture"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
 
         {/* Global Smooth Scroll Wrapper */}
         <SmoothScroll>
