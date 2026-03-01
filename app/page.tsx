@@ -6,7 +6,7 @@ import { Footer } from "./components/footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-[200vh] bg-[#f4f4f0] overflow-hidden">
+    <div className="relative min-h-[200vh] bg-transparent overflow-hidden">
 
       {/* Navigation Bar */}
       <Navigation />

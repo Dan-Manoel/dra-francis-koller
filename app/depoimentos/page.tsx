@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function DepoimentosPage() {
     return (
-        <div className="relative min-h-screen bg-[#f4f4f0] overflow-hidden">
+        <div className="relative min-h-screen bg-transparent overflow-hidden">
             {/* Navigation Bar */}
             <Navigation />
 

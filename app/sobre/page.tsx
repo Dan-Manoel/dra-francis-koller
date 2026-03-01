@@ -32,7 +32,7 @@ export default function SobrePage() {
     ];
 
     return (
-        <div className="bg-[#f4f4f0] min-h-screen">
+        <div className="bg-transparent min-h-screen">
             <Navigation />
 
             <main className="pt-32 md:pt-40 pb-20 px-8 md:px-20 max-w-7xl mx-auto">
