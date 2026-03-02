@@ -104,15 +104,6 @@ export default function SobrePage() {
                                 Como facilitadora, pesquisadora e terapeuta, trago ao meu trabalho uma visão ampla: corpo, mente, emoções e espírito como expressões interligadas de uma mesma inteligência vital. Minha trajetória profissional nasceu de um chamado profundo: compreender a dor humana em todas as suas camadas — do corpo físico às memórias emocionais, do sistema nervoso às raízes ancestrais que moldam nossa percepção de mundo.
                             </p>
 
-                            <motion.p
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className="border-l-4 border-[#d4a373] pl-4 italic text-[#1a2e22] text-sm md:text-base leading-relaxed"
-                            >
-                                Terapeuta Bioxamânica há mais de 12 anos, entre Círculos de Mulheres e de pessoas que buscam o autoconhecimento, também busco favorecer esse processo de autocura em atendimentos individuais através das terapias bioxamânicas.
-                            </motion.p>
                         </div>
                     </motion.div>
                 </div>
