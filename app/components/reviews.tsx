@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Star, MessageCircle, ExternalLink } from "lucide-react";
 import { motion, useMotionValue, useAnimationFrame, useMotionValueEvent } from "framer-motion";
+import { FEATURED_REVIEWS } from "../constants/featured-reviews";
 
 interface Review {
     author_name: string;
@@ -19,32 +20,56 @@ interface PlaceData {
 }
 
 export function Reviews() {
-    const [data, setData] = useState<PlaceData | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState<PlaceData | null>({
+        reviews: FEATURED_REVIEWS,
+        user_ratings_total: FEATURED_REVIEWS.length,
+        rating: 5.0
+    });
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        async function fetchReviews() {
+        setIsMounted(true);
+
+        async function fetchProfilePhotos() {
             try {
                 const res = await fetch("/api/reviews");
-                const json = await res.json();
                 if (res.ok) {
-                    setData(json);
+                    const json = await res.json();
+                    const apiReviews = json.reviews || [];
+
+                    // Map API profile photos by author name
+                    const photoMap = new Map();
+                    apiReviews.forEach((r: Review) => {
+                        if (r.profile_photo_url) {
+                            photoMap.set(r.author_name.toLowerCase(), r.profile_photo_url);
+                        }
+                    });
+
+                    // Update featured reviews with dynamic photos where available
+                    const updatedReviews = FEATURED_REVIEWS.map(featured => {
+                        const matchedPhoto = photoMap.get(featured.author_name.toLowerCase());
+                        if (matchedPhoto) {
+                            return { ...featured, profile_photo_url: matchedPhoto };
+                        }
+                        return featured;
+                    });
+
+                    setData({
+                        reviews: updatedReviews,
+                        user_ratings_total: json.user_ratings_total || FEATURED_REVIEWS.length,
+                        rating: json.rating || 5.0
+                    });
                 }
             } catch (err) {
-                console.error("Failed to fetch reviews", err);
-            } finally {
-                setLoading(false);
+                console.error("Failed to fetch fresh review photos context", err);
             }
         }
-        fetchReviews();
+
+        fetchProfilePhotos();
     }, []);
 
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center py-20 min-h-[40vh]">
-                <div className="w-12 h-12 border-4 border-[#1a2e22]/20 border-t-[#d4a373] rounded-full animate-spin"></div>
-            </div>
-        );
+    if (!isMounted) {
+        return null;
     }
 
     if (!data?.reviews || data.reviews.length === 0) {
@@ -77,7 +102,7 @@ export function Reviews() {
                     {renderStars(data.rating ? Math.round(data.rating) : 5)}
                 </div>
                 <p className="text-sm font-bold tracking-widest text-[#1a2e22]/60 uppercase border border-[#1a2e22]/10 bg-white/50 px-4 py-2 rounded-full shadow-sm">
-                    Baseado em {data.user_ratings_total || data.reviews.length} avaliações no Google
+                    Baseado em avaliações reais no Google
                 </p>
             </div>
 
