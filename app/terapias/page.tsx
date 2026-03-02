@@ -37,7 +37,7 @@ export default function TerapiasPage() {
     <div className="bg-transparent min-h-screen cursor-none">
       <Navigation />
 
-      <div className="pt-40 pb-12 px-8 md:px-20 max-w-7xl mx-auto">
+      <div className="relative z-10 pt-40 pb-12 px-8 md:px-20 max-w-7xl mx-auto">
         <Link href="/" className="inline-flex items-center gap-2 text-[#1a2e22]/60 hover:text-[#1a2e22] mb-8 cursor-pointer transition-colors">
           <ArrowLeft size={18} /> Voltar para Home
         </Link>
@@ -49,7 +49,7 @@ export default function TerapiasPage() {
         </p>
       </div>
 
-      <div className="px-8 md:px-20 pb-40 max-w-6xl mx-auto flex flex-col gap-12">
+      <div className="relative z-10 px-8 md:px-20 pb-40 max-w-6xl mx-auto flex flex-col gap-12">
         {SERVICES_DATA.map((service, index) => {
           const isSelected = selectedItems.includes(service.id);
 
@@ -57,11 +57,11 @@ export default function TerapiasPage() {
             <motion.div
               id={`service-${service.id}`}
               key={service.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "200px" }}
-              transition={{ duration: 0.6, delay: 0 }}
-              className={`group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border-2 ${isSelected ? "border-[#d4a373]" : "border-transparent"
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className={`group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-colors transition-shadow duration-300 border-2 ${isSelected ? "border-[#d4a373]" : "border-transparent"
                 }`}
             >
               {/* Background Image Layer */}
