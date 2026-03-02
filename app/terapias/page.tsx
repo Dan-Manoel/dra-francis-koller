@@ -64,7 +64,7 @@ export default function TerapiasPage() {
               className={`group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-colors transition-shadow duration-300 border-2 ${isSelected ? "border-[#d4a373]" : "border-transparent"
                 }`}
             >
-              {/* Background Image Layer */}
+              {/* Camada de Imagem de Fundo (Background) */}
               <div className="absolute inset-0 z-0">
                 <Image
                   src={service.image}
@@ -74,10 +74,10 @@ export default function TerapiasPage() {
                 />
               </div>
 
-              {/* Legibility Gradient Overlay */}
+              {/* Gradiente de Sobreposição para Legibilidade */}
               <div className="absolute inset-0 z-10 bg-gradient-to-b from-white via-white/60 to-transparent pointer-events-none" />
 
-              {/* Selection Check Overlay */}
+              {/* Sobreposição de Ícone de Check (Seleção) */}
               <AnimatePresence>
                 {isSelected && (
                   <motion.div
@@ -93,8 +93,8 @@ export default function TerapiasPage() {
                 )}
               </AnimatePresence>
 
-              {/* Content Overlay */}
-              {/* pb-32 prevents text from bleeding into the image focus area */}
+              {/* Sobreposição de Conteúdo */}
+              {/* padding-bottom 32 evita que o texto invada a área focal da imagem */}
               <div className="relative z-10 p-8 md:p-12 pb-32 flex flex-col justify-between h-full">
                 <div>
                   <div className="flex justify-between items-start mb-6">
@@ -110,7 +110,7 @@ export default function TerapiasPage() {
                   </div>
                 </div>
 
-                {/* Card Footer Actions */}
+                {/* Rodapé do Card: Ações */}
                 <div className="flex justify-between items-end border-t border-[#1a2e22]/10 pt-6 mt-8">
 
 

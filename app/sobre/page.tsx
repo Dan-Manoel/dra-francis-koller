@@ -7,7 +7,7 @@ import { Footer } from "../components/footer";
 import { motion } from "framer-motion";
 
 export default function SobrePage() {
-    // Academic and Technical Formations Data
+    // Dados das Formações Acadêmicas e Técnicas
     const formacoes = [
         "Graduada em Fisioterapia - UNIP",
         "Reabilitação a Pacientes Neurológicos e de Alta Complexidade – Instituto Pesquisa ALBERT EINSTEIN",
@@ -35,9 +35,9 @@ export default function SobrePage() {
         <div className="bg-transparent min-h-screen">
             <Navigation />
 
-            <main className="pt-32 md:pt-40 pb-20 px-8 md:px-20 max-w-7xl mx-auto">
+            <main className="relative z-10 pt-32 md:pt-40 pb-20 px-8 md:px-20 max-w-7xl mx-auto">
 
-                {/* Page Hero Header */}
+                {/* Cabeçalho Principal da Página */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -51,12 +51,12 @@ export default function SobrePage() {
                     </h1>
                 </motion.div>
 
-                {/* Section 1: Main Biography */}
+                {/* Seção 1: Biografia Principal */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-32">
 
-                    {/* LEFT COLUMN: Profile Image & Secondary Title */}
+                    {/* COLUNA ESQUERDA: Imagem de Perfil e Título Secundário */}
                     <div className="flex flex-col gap-8">
-                        {/* Profile Image */}
+                        {/* Imagem de Perfil */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -77,14 +77,14 @@ export default function SobrePage() {
 
                     </div>
 
-                    {/* RIGHT COLUMN: Biographical Text */}
+                    {/* COLUNA DIREITA: Texto Biográfico */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         className="prose prose-lg text-[#1a2e22]/80"
                     >
-                        {/* Roles Subtitle */}
+                        {/* Subtítulo de Atuação */}
 
 
                         <div className="space-y-6 text-base md:text-lg leading-relaxed text-justify md:text-left">
@@ -117,13 +117,13 @@ export default function SobrePage() {
                     </motion.div>
                 </div>
 
-                {/* Section 2: Philosophy and Formations */}
+                {/* Seção 2: Filosofia e Formações */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 border-t border-[#1a2e22]/10 pt-20">
 
-                    {/* Left Column: Philosophy Text & Formations List */}
+                    {/* Coluna Esquerda: Texto da Filosofia e Lista de Formações */}
                     <div className="md:col-span-7 order-2 md:order-1">
 
-                        {/* Philosophy Block */}
+                        {/* Bloco de Filosofia de Atendimento */}
                         <div className="mb-12">
                             <h3 className="text-3xl font-serif text-[#1a2e22] mb-6">Filosofia de Atendimento</h3>
                             <p className="text-lg text-[#1a2e22]/80 leading-relaxed text-justify md:text-left">
@@ -131,7 +131,7 @@ export default function SobrePage() {
                             </p>
                         </div>
 
-                        {/* Formations List Render */}
+                        {/* Renderização da Lista de Formações */}
                         <div>
                             <h4 className="text-sm font-bold tracking-widest text-[#1a2e22]/60 uppercase mb-6 flex items-center gap-2">
                                 <span className="w-8 h-[1px] bg-[#d4a373]"></span> Formação Acadêmica & Técnica
@@ -155,7 +155,7 @@ export default function SobrePage() {
                         </div>
                     </div>
 
-                    {/* Right Column: Contextual Images */}
+                    {/* Coluna Direita: Imagens de Contexto */}
                     <div className="md:col-span-5 grid grid-cols-2 gap-4 order-1 md:order-2 self-start">
                         <motion.div
                             whileHover={{ scale: 1.02 }}

@@ -37,7 +37,7 @@ export function Reviews() {
                     const json = await res.json();
                     const apiReviews = json.reviews || [];
 
-                    // Map API profile photos by author name
+                    // Mapeando fotos de perfil da API pelo nome do autor
                     const photoMap = new Map();
                     apiReviews.forEach((r: Review) => {
                         if (r.profile_photo_url) {
@@ -45,7 +45,7 @@ export function Reviews() {
                         }
                     });
 
-                    // Update featured reviews with dynamic photos where available
+                    // Atualizando os depoimentos em destaque com fotos dinâmicas, quando disponíveis
                     const updatedReviews = FEATURED_REVIEWS.map(featured => {
                         const matchedPhoto = photoMap.get(featured.author_name.toLowerCase());
                         if (matchedPhoto) {
@@ -93,7 +93,7 @@ export function Reviews() {
 
     return (
         <div className="w-full">
-            {/* Overview Head */}
+            {/* Cabeçalho de Visão Geral (Resumo da Avaliação) */}
             <div className="flex flex-col items-center justify-center text-center mb-16">
                 <div className="text-5xl font-serif font-bold text-[#1a2e22] mb-4">
                     {data.rating?.toFixed(1) || "5.0"}
@@ -106,12 +106,12 @@ export function Reviews() {
                 </p>
             </div>
 
-            {/* Reviews Carousel */}
+            {/* Carrossel de Depoimentos */}
             <div className="mb-20 -mx-6 md:-mx-20 overflow-visible">
                 <ReviewsCarousel reviews={data.reviews} />
             </div>
 
-            {/* Action Button */}
+            {/* Botão de Ação (Ver no Google) */}
             <div className="flex justify-center">
                 <a
                     href="https://www.google.com/search?sca_esv=1ef01aa32e62b85d&sxsrf=ANbL-n4COH_JVCL2yL_2cVEdjvTE4RSvCQ:1772390733164&q=avalia%C3%A7%C3%B5es+sobre+dra.+francis+koller+%7C+acupuntura+cl%C3%ADnica,+ozonioterapia,+fisioterapia+regenerativa.+votorantim&uds=ALYpb_l_c6VAZZ_xpxiQMIrsixJBjuRc1WpJ2MXgM-63bbbM1gKtaYipHuR1mrpoVp8HUAdLLWJ7ohFT-BeHPcl4x3pQmX331cuJX6ONtKLWvQvgRXzRqXhcW33KZie_cL7RANa3f1Qe7NMK6FMQw_zq726rYP2HDIEJCuVfV7PF68JzV5zZcZ79uXsKcCPImUqYuFc_HdTub_SuHFuWJNVcbw4rWkzpHeErTi31PdZVamlpL-3hbOQMzvkdHVZoLoO8qSVUXNXnW_SWRdUrGuumikz4c7ofHlRRHapgvNI2HnOlJTq4TkbQlEbM2g0jPwMjZh1BNs2s0zYvn3TZfIfaMQyph5Ny0uB7g8z_9NzxIQaCwpPcBWcrqtkTIwgpGG-oE2J6afBp5ve4EPgXTeliMmcb7EcZpcviIDUXKzL0DoL1lAOEWCsEPGCHhg-0bjnPzQvISm5zhH0HP0CUblSbm7q_rgR3FgUzqBBkXB9st6Oqq77vX75us4kGE7sR2QSTNPwywVJWPcEojVJLV2GqB_pLungdqg&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOXCm86zKvH-H1VZa2APceqMKLEjwlGJdzae_5rLeThXH2jsZpa-UAYS17CtYUmHqSkheb5ii5awsAsYlSMaa8eaU55U2PIpd75AQwdtrKbFvcYi1jdC3J4gofkdJzpNnJeb36m4Re1MToNf18UjbX0M73seUCQZi9CidEAFbVopz7sQdfXyKHegVosoSe8QWrDczdZRJ5pjrA0OR2n0_cyByFHGw&sa=X&ved=2ahUKEwipu7aArv-SAxWJIbkGHfg7LmgQk8gLegQILRAB&ictx=1&biw=384&bih=698&dpr=3.75"
@@ -164,10 +164,10 @@ function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
     });
 
     useAnimationFrame((time, delta) => {
-        // Pause animation if dragging or hovered desktop
+        // Pausar a animação se o usuário estiver arrastando ou com o mouse sobre o elemento no desktop
         if (isDragging || isHovered || contentWidth === 0) return;
 
-        // Matched speed with the home carousel
+        // Velocidade sincronizada com o carrossel da página inicial
         const speed = 0.3;
         const moveBy = -speed * (delta / 8);
         x.set(x.get() + moveBy);
@@ -176,7 +176,7 @@ function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
     const handleCardClick = (e: React.MouseEvent) => {
         const distX = Math.abs(e.clientX - pointerDownPos.current.x);
         const distY = Math.abs(e.clientY - pointerDownPos.current.y);
-        // Ignore clicks if they were actually drags 
+        // Ignorar cliques se eles foram, na verdade, movimentos de arrastar 
         if (distX > 5 || distY > 5) return;
     };
 

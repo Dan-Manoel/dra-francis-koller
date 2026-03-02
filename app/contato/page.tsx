@@ -12,14 +12,14 @@ export default function ContatoPage() {
         <div className="bg-transparent min-h-screen">
             <Navigation />
 
-            <main className="pt-40 pb-20 px-8 md:px-20 max-w-7xl mx-auto">
+            <main className="relative z-10 pt-40 pb-20 px-8 md:px-20 max-w-7xl mx-auto">
                 <h1 className="text-5xl md:text-7xl font-serif text-[#1a2e22] mb-12">
                     Contato & Localização
                 </h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 
-                    {/* Contact Information Block */}
+                    {/* Bloco de Informações de Contato */}
                     <div className="flex flex-col gap-10">
                         <div className="space-y-6">
                             <h3 className="text-2xl font-serif text-[#1a2e22]">Canais de Atendimento</h3>
@@ -49,7 +49,7 @@ export default function ContatoPage() {
                             </div>
                         </div>
 
-                        {/* Operating Hours */}
+                        {/* Horário de Funcionamento */}
                         <div className="space-y-4">
                             <h3 className="text-2xl font-serif text-[#1a2e22] flex items-center gap-2">
                                 <Clock size={24} className="text-[#d4a373]" /> Horário de Atendimento
@@ -67,7 +67,7 @@ export default function ContatoPage() {
                         </div>
                     </div>
 
-                    {/* Location & Interactive Map */}
+                    {/* Localização e Mapa Interativo */}
                     <div className="bg-white p-8 rounded-lg shadow-lg border border-[#1a2e22]/5">
                         <h3 className="text-2xl font-serif text-[#1a2e22] mb-6 flex items-center gap-2">
                             <MapPin size={24} className="text-[#d4a373]" /> Onde estamos
@@ -79,10 +79,10 @@ export default function ContatoPage() {
                             Sorocaba - SP
                         </address>
 
-                        {/* Google Maps Embed */}
+                        {/* Incorporação do Google Maps */}
                         <div className="w-full h-80 rounded-lg overflow-hidden shadow-sm border border-[#1a2e22]/10">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1513.9548032615073!2d-47.4367974194675!3d-23.533010203680167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf61c240330dff%3A0xb020f23d4e307616!2sR.%20Ant%C3%B4nio%20Scarpa%20Pach%C3%AAco%20Leite%2C%20330%20-%20Jardim%20Sao%20Luis%2C%20Votorantim%20-%20SP%2C%2018112-750!5e0!3m2!1spt-BR!2sbr!4v1770864782397!5m2!1spt-BR!2sbr" // Google Maps embedded source URL
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1513.9548032615073!2d-47.4367974194675!3d-23.533010203680167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf61c240330dff%3A0xb020f23d4e307616!2sR.%20Ant%C3%B4nio%20Scarpa%20Pach%C3%AAco%20Leite%2C%20330%20-%20Jardim%20Sao%20Luis%2C%20Votorantim%20-%20SP%2C%2018112-750!5e0!3m2!1spt-BR!2sbr!4v1770864782397!5m2!1spt-BR!2sbr" // URL de origem incorporada do Google Maps
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
