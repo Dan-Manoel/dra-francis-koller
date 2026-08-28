@@ -37,13 +37,28 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-[#f4f4f0]/10 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-[#f4f4f0]/30">
-         <p>© {new Date().getFullYear()} Dra. Francis Koller. Todos os direitos reservados.</p>
-         <a href="https://abovedigital.com.br/" target="_blank" className="hover:text-[#d4a373] transition-colors flex items-center gap-1">
-           Desenvolvido por <span className="font-semibold tracking-wide">AboveDigital</span>
-         </a>
-      </div>
+            {/* Crédito Mindsite */}
+            <div className="flex flex-col items-center gap-1 mt-2">
+              <div className="flex items-center gap-1.5 font-brand text-sm tracking-wider">
+                <span>Desenvolvido por</span>
+                <a
+                  href="https://www.mindsite.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-koko-light/80 hover:text-koko-sun transition-colors duration-300 cursor-pointer"
+                >
+                  Mindsite
+                </a>
+              </div>
+              <a
+                href="https://www.mindsite.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-[11px] md:text-xs text-koko-light/40 hover:text-koko-light/80 transition-colors duration-300 italic cursor-pointer"
+              >
+                Faça o seu trabalho se destacar no mundo digital. Conheça.
+              </a>
+            </div>
     </footer>
   );
 }
